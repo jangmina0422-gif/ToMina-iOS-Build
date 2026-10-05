@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.24
+name: Build To.Mina core 0.1.25
 on:
   workflow_dispatch:
   push:
@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '35226d1cdaa7995540bd040d5ff7925785ebd654871905614a28e6393acdab8f  ToMina-iOS-free-build-0.1.24.zip' | shasum -a 256 -c -
+          echo 'cff5839ca724bc8384c83811144e09fd3d0ad7ee01128447e7a002802e1737c2  ToMina-iOS-free-build-0.1.25.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.24.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.25.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
@@ -38,22 +38,22 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.24'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '25'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.25'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '26'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.24-build25-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.25-build26-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         with:
-          name: To.Mina-0.1.24-build25-core
-          path: source/dist/To.Mina-0.1.24-build25-core-unsigned.ipa
+          name: To.Mina-0.1.25-build26-core
+          path: source/dist/To.Mina-0.1.25-build26-core-unsigned.ipa
           retention-days: 2
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.24-build25-core-test-results
+          name: To.Mina-0.1.25-build26-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
           retention-days: 2
