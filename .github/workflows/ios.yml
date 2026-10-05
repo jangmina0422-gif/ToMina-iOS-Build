@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '87b1f62b73f51a1f006e5fd63e1fbcb29380be97e44e146e95d081533b0e03d9  ToMina-iOS-free-build-0.1.24.zip' | shasum -a 256 -c -
+          echo '35226d1cdaa7995540bd040d5ff7925785ebd654871905614a28e6393acdab8f  ToMina-iOS-free-build-0.1.24.zip' | shasum -a 256 -c -
           mkdir source
           unzip -q ToMina-iOS-free-build-0.1.24.zip -d source
       - name: Prepare project
