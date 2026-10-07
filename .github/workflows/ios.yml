@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.28
+name: Build To.Mina core 0.1.29
 on:
   workflow_dispatch:
   push:
@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '81be23746d9a73e2b763ca332779778e5d27debf09f59e41f9386eeb884c8378  ToMina-iOS-free-build-0.1.28.zip' | shasum -a 256 -c -
+          echo 'e6cf9e6a169ac0c78f447f89eccba23f0826b26849fc35419cab4191a01b033f  ToMina-iOS-free-build-0.1.29.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.28.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.29.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
@@ -38,24 +38,24 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.28'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '29'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.29'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '30'
           test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
           test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.28-build29-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.29-build30-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         with:
-          name: To.Mina-0.1.28-build29-core
-          path: source/dist/To.Mina-0.1.28-build29-core-unsigned.ipa
+          name: To.Mina-0.1.29-build30-core
+          path: source/dist/To.Mina-0.1.29-build30-core-unsigned.ipa
           retention-days: 2
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.28-build29-core-test-results
+          name: To.Mina-0.1.29-build30-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
           retention-days: 2
