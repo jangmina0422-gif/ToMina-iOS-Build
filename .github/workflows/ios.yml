@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.32
+name: Build To.Mina core 0.1.33
 on:
   workflow_dispatch:
   push:
@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo 'de736c3d3a98b142709bef19f98bba47480f78dbead04abf468df8b1b4b4d382  ToMina-iOS-free-build-0.1.32.zip' | shasum -a 256 -c -
+          echo '4f63cc7cd37354d26f3232948ee3021432d946c06d0ca9234f8fdc4591e92b4c  ToMina-iOS-free-build-0.1.33.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.32.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.33.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
@@ -40,19 +40,19 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.32'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '33'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.33'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '34'
           test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
           test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.32-build33-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.33-build34-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         with:
-          name: To.Mina-0.1.32-build33-core
-          path: source/dist/To.Mina-0.1.32-build33-core-unsigned.ipa
+          name: To.Mina-0.1.33-build34-core
+          path: source/dist/To.Mina-0.1.33-build34-core-unsigned.ipa
           retention-days: 2
       - name: Verify actual editor controls
         working-directory: source
@@ -65,14 +65,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.32-editor-ui-proof
+          name: To.Mina-0.1.33-editor-ui-proof
           path: source/ui-proof
           if-no-files-found: ignore
           retention-days: 2
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.32-build33-core-test-results
+          name: To.Mina-0.1.33-build34-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
           retention-days: 2
