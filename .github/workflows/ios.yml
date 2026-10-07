@@ -33,21 +33,6 @@ jobs:
           DEVICE=$(python3 -c 'import json; d=json.load(open("devices.json"))["devices"]; print(next(v["udid"] for k in sorted(d,key=lambda k:("iOS-18-" in k,k),reverse=True) for v in d[k] if "iOS" in k and "iPad" in v["name"] and v.get("isAvailable")))')
           echo "EDITOR_TEST_DEVICE=$DEVICE" >> "$GITHUB_ENV"
           xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath TestResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests test
-      - name: Verify actual editor controls
-        working-directory: source
-        timeout-minutes: 4
-        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests -test-timeouts-enabled YES -default-test-execution-time-allowance 45 -maximum-test-execution-time-allowance 60 test
-      - name: Export editor UI screenshots
-        working-directory: source
-        if: always()
-        run: xcrun xcresulttool export attachments --path EditorUIResults.xcresult --output-path ui-proof
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: To.Mina-0.1.32-editor-ui-proof
-          path: source/ui-proof
-          if-no-files-found: ignore
-          retention-days: 2
       - name: Build unsigned core
         working-directory: source
         run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination "generic/platform=iOS" -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
@@ -68,6 +53,21 @@ jobs:
         with:
           name: To.Mina-0.1.32-build33-core
           path: source/dist/To.Mina-0.1.32-build33-core-unsigned.ipa
+          retention-days: 2
+      - name: Verify actual editor controls
+        working-directory: source
+        timeout-minutes: 10
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests -test-timeouts-enabled YES -default-test-execution-time-allowance 45 -maximum-test-execution-time-allowance 60 test
+      - name: Export editor UI screenshots
+        working-directory: source
+        if: always()
+        run: xcrun xcresulttool export attachments --path EditorUIResults.xcresult --output-path ui-proof
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: To.Mina-0.1.32-editor-ui-proof
+          path: source/ui-proof
+          if-no-files-found: ignore
           retention-days: 2
       - uses: actions/upload-artifact@v4
         if: always()
