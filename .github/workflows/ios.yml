@@ -1,4 +1,4 @@
-name: Verify To.Mina 0.1.41 system save UI
+name: Build To.Mina core 0.1.41
 on:
   workflow_dispatch:
   push:
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   build:
     runs-on: macos-15
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
@@ -37,7 +37,7 @@ jobs:
           brew install xcodegen
           sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
           xcodegen generate
-      - name: Select UI test device
+      - name: Verify save recovery and search regressions
         working-directory: source
         run: |
           defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
@@ -47,10 +47,32 @@ jobs:
           xcrun simctl boot "$DEVICE" || true
           xcrun simctl bootstatus "$DEVICE" -b
           xcrun simctl launch "$DEVICE" com.apple.DocumentsApp
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath TestResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests test
+      - name: Build unsigned core
+        working-directory: source
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination "generic/platform=iOS" -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
+      - name: Verify empty accounts and package
+        working-directory: source
+        run: |
+          APP=build/Build/Products/Release-iphoneos/ToMina.app
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.41'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '42'
+          test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
+          test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
+          python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
+          mkdir -p dist/Payload
+          cp -R "$APP" dist/Payload/
+          cd dist
+          zip -qr To.Mina-0.1.41-build42-core-unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: To.Mina-0.1.41-build42-core
+          path: source/dist/To.Mina-0.1.41-build42-core-unsigned.ipa
+          retention-days: 2
       - name: Verify actual editor controls
         working-directory: source
-        timeout-minutes: 22
-        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testSaveOpensSystemExportPanelAndToolsKeepLatestProject -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
+        timeout-minutes: 15
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testSaveOpensSystemExportPanelAndToolsKeepLatestProject -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
       - name: Export editor UI screenshots
         working-directory: source
         if: always()
