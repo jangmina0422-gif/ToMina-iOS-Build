@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.43
+name: Build To.Mina core 0.1.44
 on:
   workflow_dispatch:
   push:
@@ -16,14 +16,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '899a5bf36fdac0ebc01cc642a4b9a72e286973f9efb8f78db5efefd35141b253  ToMina-iOS-free-build-0.1.43.zip' | shasum -a 256 -c -
+          echo 'b23d4310acedd9dcf5ab4587b501faaa119f4192f783011b55251c46a8317ec9  ToMina-iOS-free-build-0.1.44.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.43.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.44.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
           brew install xcodegen
-          python3 -c 'from pathlib import Path; p=Path("UITests/EditorControlsUITests.swift"); s=p.read_text(); assert s.count("版本 0.1.42")==1; p.write_text(s.replace("版本 0.1.42","版本 0.1.43"))'
           sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
           node EngineChecks/ViewFitChecks.js
           cmp Resources/ViewFit.js EngineChecks/ViewFit.js
@@ -46,24 +45,24 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.43'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '44'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.44'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '45'
           test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
           test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.43-build44-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.44-build45-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         with:
-          name: To.Mina-0.1.43-build44-core
-          path: source/dist/To.Mina-0.1.43-build44-core-unsigned.ipa
+          name: To.Mina-0.1.44-build45-core
+          path: source/dist/To.Mina-0.1.44-build45-core-unsigned.ipa
           retention-days: 7
       - name: Verify actual editor controls
         working-directory: source
         timeout-minutes: 15
-        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitToolReportAndBorderToggle -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitReplacesVisibleSourceAndOtherPanels -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitToolReportAndBorderToggle -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitReplacesVisibleSourceAndOtherPanels -only-testing:ToMinaUITests/EditorControlsUITests/testListSourceAndRegionGuidesAfterGlobalFit -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
       - name: Export editor UI screenshots
         working-directory: source
         if: always()
@@ -76,14 +75,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.43-editor-ui-proof
+          name: To.Mina-0.1.44-editor-ui-proof
           path: source/ui-proof
           if-no-files-found: ignore
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.43-build44-core-test-results
+          name: To.Mina-0.1.44-build45-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
           retention-days: 7
