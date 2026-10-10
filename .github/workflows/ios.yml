@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.41
+name: Build To.Mina core 0.1.42
 on:
   workflow_dispatch:
   push:
@@ -16,28 +16,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '3417a9cf42e4dfdac04aed1d8ad4413b905c4a8b4f53cc6db8615a05483c004a  ToMina-iOS-free-build-0.1.41.zip' | shasum -a 256 -c -
+          echo 'd5917db09c8ae354b0b93a01f06de6bc32104ad75a54757769af26fd4d8c8875  ToMina-iOS-free-build-0.1.42.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.41.zip -d source
-      - name: Resolve simulator Files location in native save test
-        working-directory: source
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('UITests/EditorControlsUITests.swift')
-          text = p.read_text()
-          old = '        let ready = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in save.isHittable && save.isEnabled }, object: nil)\n        XCTAssertEqual(XCTWaiter.wait(for: [ready], timeout: 30), .completed)\n'
-          new = '        // Choose the provider location through Files itself. The directoryURL\n        // hint on a fresh simulator can display an unresolved, read-only route.\n        let local = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@", "On My iPad")).firstMatch\n        XCTAssertTrue(local.waitForExistence(timeout: 15)); local.tap()\n        let documents = app.cells.containing(.staticText, identifier: "To.Mina").firstMatch\n        XCTAssertTrue(documents.waitForExistence(timeout: 15)); documents.tap()\n'
-          assert old in text
-          p.write_text(text.replace(old, new))
-          PY
+          unzip -q ToMina-iOS-free-build-0.1.42.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
           brew install xcodegen
           sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          node EngineChecks/ViewFitChecks.js
+          cmp Resources/ViewFit.js EngineChecks/ViewFit.js
           xcodegen generate
-      - name: Verify save recovery and search regressions
+      - name: Verify native VIEW fitting and existing regressions
         working-directory: source
         run: |
           defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
@@ -55,24 +45,24 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.41'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '42'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.42'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '43'
           test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
           test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.41-build42-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.42-build43-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         with:
-          name: To.Mina-0.1.41-build42-core
-          path: source/dist/To.Mina-0.1.41-build42-core-unsigned.ipa
-          retention-days: 2
+          name: To.Mina-0.1.42-build43-core
+          path: source/dist/To.Mina-0.1.42-build43-core-unsigned.ipa
+          retention-days: 7
       - name: Verify actual editor controls
         working-directory: source
         timeout-minutes: 15
-        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testSaveOpensSystemExportPanelAndToolsKeepLatestProject -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitToolReportAndBorderToggle -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
       - name: Export editor UI screenshots
         working-directory: source
         if: always()
@@ -85,14 +75,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.41-editor-ui-proof
+          name: To.Mina-0.1.42-editor-ui-proof
           path: source/ui-proof
           if-no-files-found: ignore
-          retention-days: 2
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.41-build42-core-test-results
+          name: To.Mina-0.1.42-build43-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
-          retention-days: 2
+          retention-days: 7
