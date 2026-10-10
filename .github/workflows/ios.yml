@@ -23,6 +23,7 @@ jobs:
         working-directory: source
         run: |
           brew install xcodegen
+          python3 -c 'from pathlib import Path; p=Path("UITests/EditorControlsUITests.swift"); s=p.read_text(); assert s.count("版本 0.1.42")==1; p.write_text(s.replace("版本 0.1.42","版本 0.1.43"))'
           sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
           node EngineChecks/ViewFitChecks.js
           cmp Resources/ViewFit.js EngineChecks/ViewFit.js
