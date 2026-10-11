@@ -1,6 +1,11 @@
 name: Build To.Mina core 0.1.45
 on:
   workflow_dispatch:
+    inputs:
+      ui_only:
+        description: "Run editor UI checks with the same verified application source"
+        type: boolean
+        default: false
   push:
     branches: [main]
 permissions:
@@ -27,7 +32,21 @@ jobs:
           node EngineChecks/ViewFitChecks.js
           cmp Resources/ViewFit.js EngineChecks/ViewFit.js
           xcodegen generate
-      - name: Verify native VIEW fitting and existing regressions
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('UITests/EditorControlsUITests.swift')
+          s=p.read_text()
+          old='app.buttons["VIEW 全局贴合"].tap()'
+          new='tapSettled(app.buttons["VIEW 全局贴合"])'
+          helper='    private func tapSettled(_ button: XCUIElement) {\n        XCTAssertTrue(button.waitForExistence(timeout: 8))\n        var previous = CGRect.null\n        var stableSince = Date()\n        let settled = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in\n            guard button.exists, button.isEnabled, button.isHittable else {\n                previous = .null; stableSince = Date(); return false\n            }\n            let frame = button.frame\n            if frame != previous {\n                previous = frame; stableSince = Date(); return false\n            }\n            return Date().timeIntervalSince(stableSince) >= 0.6\n        }, object: nil)\n        XCTAssertEqual(XCTWaiter.wait(for: [settled], timeout: 8), .completed)\n        button.tap()\n    }\n'
+          anchor='    private func openApp('
+          assert s.count(old)==2 and s.count(anchor)==1
+          s=s.replace(old,new).replace(anchor,helper+anchor)
+          assert hashlib.sha256(s.encode()).hexdigest()=='038e1cc980fabc20fd23752a451130751434d256e22ecab31cce36ea12645299'
+          p.write_text(s)
+          PY
+      - name: Prepare simulator
         working-directory: source
         run: |
           defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
@@ -37,11 +56,17 @@ jobs:
           xcrun simctl boot "$DEVICE" || true
           xcrun simctl bootstatus "$DEVICE" -b
           xcrun simctl launch "$DEVICE" com.apple.DocumentsApp
-          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath TestResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests test
+      - name: Verify native VIEW fitting and existing regressions
+        if: ${{ inputs.ui_only != true }}
+        working-directory: source
+        run: |
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath TestResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests test
       - name: Build unsigned core
+        if: ${{ inputs.ui_only != true }}
         working-directory: source
         run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination "generic/platform=iOS" -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
       - name: Verify empty accounts and package
+        if: ${{ inputs.ui_only != true }}
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
@@ -55,6 +80,7 @@ jobs:
           cd dist
           zip -qr To.Mina-0.1.45-build46-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
+        if: ${{ inputs.ui_only != true }}
         with:
           name: To.Mina-0.1.45-build46-core
           path: source/dist/To.Mina-0.1.45-build46-core-unsigned.ipa
