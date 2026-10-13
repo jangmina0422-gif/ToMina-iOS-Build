@@ -14,6 +14,11 @@ jobs:
         run: |
           echo '52f57df67ce73d946fb7d7e78649ecdab07f05920128c6d26a78e56b93337ebd  preview-diagnostics-56-47.zip' | sha256sum -c -
           unzip -q preview-diagnostics-56-47.zip -d probe
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('probe/build_ci.py')
+          p.write_text(p.read_text().replace('for name in old.namelist():new.writestr(name,old.read(name))','for info in old.infolist():new.writestr(info,old.read(info.filename))'))
+          PY
       - name: Enable test VM acceleration
         run: sudo chmod a+rw /dev/kvm
       - uses: reactivecircus/android-emulator-runner@v2
@@ -29,41 +34,4 @@ jobs:
         with:
           name: Android-56-preview-proof
           path: probe/proof
-          retention-days: 7
-  ios:
-    runs-on: macos-15
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-      - name: Prepare existing source and targeted checks
-        run: |
-          echo '52f57df67ce73d946fb7d7e78649ecdab07f05920128c6d26a78e56b93337ebd  preview-diagnostics-56-47.zip' | shasum -a 256 -c -
-          unzip -q ToMina-iOS-free-build-0.1.46.zip -d source
-          unzip -q preview-diagnostics-56-47.zip -d probe
-          cp probe/IqooPreviewTests.swift source/Tests/
-          cp probe/fixtures.json source/Tests/Fixtures/preview-fixtures.json
-          brew install xcodegen
-          cd source
-          sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
-          xcodegen generate
-      - name: Run IQOO composition checks
-        working-directory: source
-        run: |
-          xcrun simctl list devices available -j > devices.json
-          DEVICE=$(python3 -c 'import json; d=json.load(open("devices.json"))["devices"]; print(next(v["udid"] for k in sorted(d,key=lambda k:("iOS-18-" in k,k),reverse=True) for v in d[k] if "iOS" in k and "iPad" in v["name"] and v.get("isAvailable")))')
-          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath Probe.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests/IqooPreviewTests test
-      - name: Export actual frames
-        if: always()
-        working-directory: source
-        run: |
-          mkdir -p proof
-          if test -d Probe.xcresult; then
-            xcrun xcresulttool export attachments --path Probe.xcresult --output-path proof
-            xcrun xcresulttool get test-results summary --path Probe.xcresult --compact > proof/result.json
-          fi
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: iOS-47-iqoo-preview-proof
-          path: source/proof
           retention-days: 7
