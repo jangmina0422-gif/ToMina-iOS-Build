@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo 'ccfd537d97828142c22bcd3e246ba0d28a1cdcd791da1fe29f5d24ebd44582f7  ToMina-iOS-free-build-0.1.47.zip' | shasum -a 256 -c -
+          echo 'd4b88392a2ada7b657ab81f4db627538c7af85c48e4b0b31090725f5c9ec8621  ToMina-iOS-free-build-0.1.47.zip' | shasum -a 256 -c -
           mkdir source
           unzip -q ToMina-iOS-free-build-0.1.47.zip -d source
       - name: Prepare project
@@ -100,34 +100,4 @@ jobs:
           name: To.Mina-0.1.47-build48-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
-          retention-days: 7
-
-  android:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        api: [26, 34]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Unpack checked Android preview input
-        run: |
-          echo '14b3c5f56c00f267fadf78265cd0f495944ed6a3c3c3bfda463681d525022e9c  preview-diagnostics-57.zip' | sha256sum -c -
-          unzip -q preview-diagnostics-57.zip -d probe
-      - name: Enable test VM acceleration
-        run: sudo chmod a+rw /dev/kvm
-      - uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ matrix.api }}
-          arch: x86_64
-          target: default
-          profile: pixel_6
-          disable-animations: true
-          script: cd probe && python3 build_ci.py && bash run_ci.sh
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: Android-57-api${{ matrix.api }}-preview-proof
-          path: probe/proof
           retention-days: 7
