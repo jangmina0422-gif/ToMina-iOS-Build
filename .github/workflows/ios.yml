@@ -1,4 +1,4 @@
-name: Build To.Mina core 0.1.45
+name: Build To.Mina core 0.1.46
 on:
   workflow_dispatch:
     inputs:
@@ -21,9 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '68da4c922b9eb8fec0cdfcd26f979d13ef7c9c92f67ae2a56b6a126034658574  ToMina-iOS-free-build-0.1.45.zip' | shasum -a 256 -c -
+          echo 'a40247c3c4fad9b19ce1b14ffe14b6b0e33c4434fe7208f342f0554f4f3151c0  ToMina-iOS-free-build-0.1.46.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.45.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.46.zip -d source
       - name: Prepare project
         working-directory: source
         run: |
@@ -32,20 +32,6 @@ jobs:
           node EngineChecks/ViewFitChecks.js
           cmp Resources/ViewFit.js EngineChecks/ViewFit.js
           xcodegen generate
-          python3 - <<'PY'
-          from pathlib import Path
-          import hashlib
-          p=Path('UITests/EditorControlsUITests.swift')
-          s=p.read_text()
-          old='app.buttons["VIEW 全局贴合"].tap()'
-          new='tapSettled(app.buttons["VIEW 全局贴合"])'
-          helper='    private func tapSettled(_ button: XCUIElement) {\n        XCTAssertTrue(button.waitForExistence(timeout: 8))\n        var previous = CGRect.null\n        var stableSince = Date()\n        let settled = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in\n            guard button.exists, button.isEnabled, button.isHittable else {\n                previous = .null; stableSince = Date(); return false\n            }\n            let frame = button.frame\n            if frame != previous {\n                previous = frame; stableSince = Date(); return false\n            }\n            return Date().timeIntervalSince(stableSince) >= 0.6\n        }, object: nil)\n        XCTAssertEqual(XCTWaiter.wait(for: [settled], timeout: 8), .completed)\n        button.tap()\n    }\n'
-          anchor='    private func openApp('
-          assert s.count(old)==2 and s.count(anchor)==1
-          s=s.replace(old,new).replace(anchor,helper+anchor)
-          assert hashlib.sha256(s.encode()).hexdigest()=='038e1cc980fabc20fd23752a451130751434d256e22ecab31cce36ea12645299'
-          p.write_text(s)
-          PY
       - name: Prepare simulator
         working-directory: source
         run: |
@@ -70,25 +56,25 @@ jobs:
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.45'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '46'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.46'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '47'
           test "$(/usr/libexec/PlistBuddy -c 'Print UIFileSharingEnabled' "$APP/Info.plist")" = 'true'
           test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.45-build46-core-unsigned.ipa Payload
+          zip -qr To.Mina-0.1.46-build47-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
         if: ${{ inputs.ui_only != true }}
         with:
-          name: To.Mina-0.1.45-build46-core
-          path: source/dist/To.Mina-0.1.45-build46-core-unsigned.ipa
+          name: To.Mina-0.1.46-build47-core
+          path: source/dist/To.Mina-0.1.46-build47-core-unsigned.ipa
           retention-days: 7
       - name: Verify actual editor controls
         working-directory: source
         timeout-minutes: 15
-        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testAddedColorTemplateHasPickerAndPersistsParameters -only-testing:ToMinaUITests/EditorControlsUITests/testAddedFloatingTemplateCreatesEventAndShowsSource -only-testing:ToMinaUITests/EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitToolReportAndBorderToggle -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitReplacesVisibleSourceAndOtherPanels -only-testing:ToMinaUITests/EditorControlsUITests/testListSourceAndRegionGuidesAfterGlobalFit -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
+        run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testAddedColorTemplateHasPickerAndPersistsParameters -only-testing:ToMinaUITests/EditorControlsUITests/testAddedFloatingTemplateCreatesEventAndShowsSource -only-testing:ToMinaUITests/EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource -only-testing:ToMinaUITests/EditorControlsUITests/testHandwritingAreaClosesOuterGapsAndKeepsOverlay -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitToolReportAndBorderToggle -only-testing:ToMinaUITests/EditorControlsUITests/testGlobalViewFitReplacesVisibleSourceAndOtherPanels -only-testing:ToMinaUITests/EditorControlsUITests/testListSourceAndRegionGuidesAfterGlobalFit -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion -only-testing:ToMinaUITests/EditorControlsUITests/testTopBarAndKeyboardRemainVisibleThroughAnimationAndBarEditing -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test
       - name: Export editor UI screenshots
         working-directory: source
         if: always()
@@ -104,14 +90,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.45-editor-ui-proof
+          name: To.Mina-0.1.46-editor-ui-proof
           path: source/ui-proof
           if-no-files-found: ignore
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.45-build46-core-test-results
+          name: To.Mina-0.1.46-build47-core-test-results
           path: source/TestResults.xcresult
           if-no-files-found: ignore
           retention-days: 7
