@@ -12,7 +12,7 @@ permissions:
   contents: read
 concurrency:
   group: core-build-0.1.49
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: macos-15
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '6cf967ac574a0dfcf5c3ae16c845f74b662c731bd74e8b78f573d055ad2505fe  ToMina-iOS-free-build-0.1.49.zip' | shasum -a 256 -c -
+          echo '22d0a3d9060449704d09690682dca9e04b8ebe2c454478acddd286c7cda70030  ToMina-iOS-free-build-0.1.49.zip' | shasum -a 256 -c -
           mkdir source
           unzip -q ToMina-iOS-free-build-0.1.49.zip -d source
       - name: Prepare project
