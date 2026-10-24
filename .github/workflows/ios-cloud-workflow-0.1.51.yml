@@ -45,7 +45,13 @@ jobs:
           echo "EDITOR_TEST_DEVICE=$DEVICE" >> "$GITHUB_ENV"
           xcrun simctl boot "$DEVICE" || true
           xcrun simctl bootstatus "$DEVICE" -b
-          xcrun simctl launch "$DEVICE" com.apple.DocumentsApp
+          python3 - "$DEVICE" <<'PY'
+          import sys, subprocess
+          try:
+              subprocess.run(['xcrun', 'simctl', 'launch', sys.argv[1], 'com.apple.DocumentsApp'], timeout=45, check=False)
+          except subprocess.TimeoutExpired:
+              print('Files app warm-up timed out; continue with application tests.')
+          PY
       - name: Verify native VIEW fitting and existing regressions
         if: ${{ inputs.ui_only != true }}
         working-directory: source
