@@ -1,0 +1,29 @@
+name: Package To.Mina iOS 0.1.53 delivery
+on:
+  push:
+    branches: [codex/package-half-bda-ios-0.1.53]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: To.Mina-0.1.53-build54-core
+          run-id: 40872843854
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: compiled
+      - name: Verify compiled IPA against exact build source and prepare delivery
+        run: |
+          python3 .github/scripts/package-ios-0.1.53.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: To.Mina_IPA_0.1.53
+          path: delivery/
+          include-hidden-files: true
+          retention-days: 7
