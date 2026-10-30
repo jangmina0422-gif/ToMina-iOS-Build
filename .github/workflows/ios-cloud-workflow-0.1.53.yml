@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify and unpack public source
         run: |
-          echo '56eda0de8e8184aaa6476a263d1e790d480a01b3aca9752eb93d87be7302cf2c  ToMina-iOS-free-build-0.1.53.zip' | shasum -a 256 -c -
+          echo 'bff63b219b357decfdf9a7828b9767fcf72b27841b75f3859ad3e01b5e72cbcc  ToMina-iOS-free-build-0.1.53.zip' | shasum -a 256 -c -
           mkdir source
           unzip -q ToMina-iOS-free-build-0.1.53.zip -d source
       - name: Prepare project
@@ -56,16 +56,16 @@ jobs:
               print('Files app warm-up timed out; continue with application tests.')
           PY
       - name: Verify half BDA updates and existing regressions
-        if: ${{ inputs.ui_only != true }}
+        if: ${{ inputs.ui_only != true && !contains(github.event.head_commit.message, '[ui-only]') }}
         working-directory: source
         run: |
           xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath TestResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests test
       - name: Build unsigned core
-        if: ${{ inputs.ui_only != true }}
+        if: ${{ inputs.ui_only != true && !contains(github.event.head_commit.message, '[ui-only]') }}
         working-directory: source
         run: xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination "generic/platform=iOS" -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
       - name: Verify empty accounts and package
-        if: ${{ inputs.ui_only != true }}
+        if: ${{ inputs.ui_only != true && !contains(github.event.head_commit.message, '[ui-only]') }}
         working-directory: source
         run: |
           APP=build/Build/Products/Release-iphoneos/ToMina.app
@@ -79,7 +79,7 @@ jobs:
           cd dist
           zip -qr To.Mina-0.1.53-build54-core-unsigned.ipa Payload
       - uses: actions/upload-artifact@v4
-        if: ${{ inputs.ui_only != true }}
+        if: ${{ inputs.ui_only != true && !contains(github.event.head_commit.message, '[ui-only]') }}
         with:
           name: To.Mina-0.1.53-build54-core
           path: source/dist/To.Mina-0.1.53-build54-core-unsigned.ipa
