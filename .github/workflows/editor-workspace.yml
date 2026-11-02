@@ -1,10 +1,10 @@
-name: Build and verify To.Mina editor 0.1.54
+name: Build and verify To.Mina editor 0.1.55
 on:
   workflow_dispatch:
   push:
-    branches: [codex/editor-workspace-public-0.1.54]
+    branches: [codex/css-icons-public-0.1.55]
     paths:
-      - ToMina-iOS-free-build-0.1.54.zip
+      - ToMina-iOS-free-build-0.1.55.zip
       - .github/workflows/editor-workspace.yml
 permissions:
   contents: read
@@ -19,9 +19,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify source and generate project
         run: |
-          echo 'e297a088200996836f49cee809258ea349735ca813a02e5cefe9a0ff013d9336  ToMina-iOS-free-build-0.1.54.zip' | shasum -a 256 -c -
+          echo 'facde76d6e667a90ee9c169626352a0a807a2a053c587c49a3fecf52cf53f493  ToMina-iOS-free-build-0.1.55.zip' | shasum -a 256 -c -
           mkdir source
-          unzip -q ToMina-iOS-free-build-0.1.54.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.55.zip -d source
           brew install xcodegen
           cd source
           sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
@@ -31,14 +31,14 @@ jobs:
         run: |
           xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build > release-build.log 2>&1 || { tail -n 100 release-build.log; exit 1; }
           APP=build/Build/Products/Release-iphoneos/ToMina.app
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.54'
-          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '55'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.55'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '56'
           python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
           mkdir -p dist/Payload
           cp -R "$APP" dist/Payload/
           cd dist
-          zip -qr To.Mina-0.1.54-core.ipa Payload
-          shasum -a 256 To.Mina-0.1.54-core.ipa > SHA256SUMS
+          zip -qr To.Mina-0.1.55-core.ipa Payload
+          shasum -a 256 To.Mina-0.1.55-core.ipa > SHA256SUMS
       - name: Prepare simulator
         working-directory: source
         run: |
@@ -51,12 +51,12 @@ jobs:
       - name: Verify draft persistence and field editing
         working-directory: source
         run: |
-          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath NativeResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests/EditorInteractionTests -only-testing:ToMinaTests/EditorPerformanceTests -only-testing:ToMinaTests/SourceLineTests -only-testing:ToMinaTests/TemplateEditsTests test > native-tests.log 2>&1 || { tail -n 100 native-tests.log; exit 1; }
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath NativeResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests/CSSCleanupTests -only-testing:ToMinaTests/EditorInteractionTests -only-testing:ToMinaTests/EditorPerformanceTests -only-testing:ToMinaTests/SourceLineTests -only-testing:ToMinaTests/TemplateEditsTests test > native-tests.log 2>&1 || { tail -n 100 native-tests.log; exit 1; }
       - name: Verify editor interface
         working-directory: source
         timeout-minutes: 18
         run: |
-          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testSourceOpensDirectlyAndPlaintextLivesInToolbox -only-testing:ToMinaUITests/EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation -only-testing:ToMinaUITests/EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource -only-testing:ToMinaUITests/EditorControlsUITests/testSourceLinePositionTracksEditingAndEndNavigation -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > editor-ui-tests.log 2>&1 || { tail -n 100 editor-ui-tests.log; exit 1; }
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath EditorUIResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testSourceOpensDirectlyAndPlaintextLivesInToolbox -only-testing:ToMinaUITests/EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation -only-testing:ToMinaUITests/EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource -only-testing:ToMinaUITests/EditorControlsUITests/testSourceLinePositionTracksEditingAndEndNavigation -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -only-testing:ToMinaUITests/EditorControlsUITests/testCSSCleanupFromToolboxClosesSheetKeepsStylesAndSupportsUndo -only-testing:ToMinaUITests/EditorControlsUITests/testToolboxCleanupWithMultipleCSSWaitsForSelectionAndCanCancel -only-testing:ToMinaUITests/EditorControlsUITests/testCSSCleanupMenuClearsUnusedBodyKeepsHeaderAndUndoRestoresIt -only-testing:ToMinaUITests/EditorControlsUITests/testCSSCleanupCanBeOpenedFromINIMenu -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > editor-ui-tests.log 2>&1 || { tail -n 100 editor-ui-tests.log; exit 1; }
       - name: Export test proof
         if: always()
         working-directory: source
@@ -71,14 +71,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.54-build55-core-unsigned
+          name: To.Mina-0.1.55-build56-core-unsigned
           path: source/dist/*
           if-no-files-found: ignore
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: To.Mina-0.1.54-editor-proof
+          name: To.Mina-0.1.55-editor-proof
           path: |
             source/proof
             source/*-tests.log
