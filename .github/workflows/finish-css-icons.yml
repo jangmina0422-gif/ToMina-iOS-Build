@@ -1,0 +1,87 @@
+name: Finish To.Mina 0.1.55 verification and core retrieval
+on:
+  push:
+    branches: [codex/css-icons-public-0.1.55]
+    paths: [.github/workflows/finish-css-icons.yml, ToMina-iOS-free-build-0.1.55-ui.zip]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: To.Mina-0.1.55-build56-core-unsigned
+          run-id: 41383973854
+          github-token: ${{ github.token }}
+          path: core
+      - uses: actions/download-artifact@v4
+        with:
+          name: To.Mina-0.1.55-editor-proof
+          run-id: 41383973854
+          github-token: ${{ github.token }}
+          path: proof-download
+      - name: Preserve only the sanitized core and verification summaries
+        run: |
+          mkdir -p build-output
+          cp core/To.Mina-0.1.55-core.ipa build-output/To.Mina-0.1.55-core.ipa
+          find proof-download -name '*-summary.json' -exec cp {} build-output/ \;
+          sha256sum build-output/To.Mina-0.1.55-core.ipa > build-output/SHA256SUMS
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-output
+          git commit -m 'Preserve sanitized iOS 0.1.55 core for local resource assembly [skip ci]'
+          git push origin HEAD:codex/css-icons-public-0.1.55
+  verify-ipad-cancel:
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify unchanged application source and prepare the project
+        run: |
+          echo '2862549dfd4826f306208c6d56aec338b3dbe75f0f29de47cb426a171448ab34  ToMina-iOS-free-build-0.1.55-ui.zip' | shasum -a 256 -c -
+          unzip -q ToMina-iOS-free-build-0.1.55-ui.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.55.zip -d previous
+          diff -qr source/Sources previous/Sources
+          cmp source/project.yml previous/project.yml
+          brew install xcodegen
+          cd source
+          sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          xcodegen generate
+      - name: Prepare simulator
+        working-directory: source
+        run: |
+          defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
+          xcrun simctl list devices available -j > devices.json
+          DEVICE=$(python3 -c 'import json; d=json.load(open("devices.json"))["devices"]; print(next(v["udid"] for k in sorted(d,key=lambda k:("iOS-18-" in k,k),reverse=True) for v in d[k] if "iOS" in k and "iPad" in v["name"] and v.get("isAvailable")))')
+          echo "EDITOR_TEST_DEVICE=$DEVICE" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEVICE" || true
+          xcrun simctl bootstatus "$DEVICE" -b
+      - name: Verify CSS selection cancellation and undo on iPad
+        working-directory: source
+        run: |
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath CancelResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testToolboxCleanupWithMultipleCSSWaitsForSelectionAndCanCancel -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > cancel-ui-tests.log 2>&1 || { tail -n 120 cancel-ui-tests.log; exit 1; }
+      - name: Export test summary
+        if: always()
+        working-directory: source
+        run: |
+          if test -d CancelResults.xcresult; then
+            xcrun xcresulttool get test-results summary --path CancelResults.xcresult --compact > CancelResults-summary.json
+            cat CancelResults-summary.json
+            xcrun xcresulttool export attachments --path CancelResults.xcresult --output-path cancel-proof
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: To.Mina-0.1.55-ipad-cancel-proof
+          path: |
+            source/CancelResults-summary.json
+            source/cancel-ui-tests.log
+            source/cancel-proof
+          retention-days: 14
