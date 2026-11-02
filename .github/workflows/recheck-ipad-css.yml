@@ -1,0 +1,65 @@
+name: Verify stable iPad CSS selection and cancellation
+on:
+  push:
+    branches: [codex/css-icons-public-0.1.55]
+    paths: [.github/workflows/recheck-ipad-css.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-ipad-cancel:
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify unchanged application source and prepare the project
+        run: |
+          echo '2862549dfd4826f306208c6d56aec338b3dbe75f0f29de47cb426a171448ab34  ToMina-iOS-free-build-0.1.55-ui.zip' | shasum -a 256 -c -
+          unzip -q ToMina-iOS-free-build-0.1.55-ui.zip -d source
+          unzip -q ToMina-iOS-free-build-0.1.55.zip -d previous
+          diff -qr source/Sources previous/Sources
+          cmp source/project.yml previous/project.yml
+          brew install xcodegen
+          cd source
+          sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          xcodegen generate
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('UITests/EditorControlsUITests.swift')
+          s=p.read_text()
+          old='XCTAssertTrue(app.buttons["styles.css"].exists)'
+          new='XCTAssertTrue(app.buttons["styles.css"].waitForExistence(timeout: 10))'
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          PY
+      - name: Prepare simulator
+        working-directory: source
+        run: |
+          defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
+          xcrun simctl list devices available -j > devices.json
+          DEVICE=$(python3 -c 'import json; d=json.load(open("devices.json"))["devices"]; print(next(v["udid"] for k in sorted(d,key=lambda k:("iOS-18-" in k,k),reverse=True) for v in d[k] if "iOS" in k and "iPad" in v["name"] and v.get("isAvailable")))')
+          echo "EDITOR_TEST_DEVICE=$DEVICE" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEVICE" || true
+          xcrun simctl bootstatus "$DEVICE" -b
+      - name: Verify CSS selection cancellation and undo on iPad
+        working-directory: source
+        run: |
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath CancelResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testToolboxCleanupWithMultipleCSSWaitsForSelectionAndCanCancel -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > cancel-ui-tests.log 2>&1 || { tail -n 120 cancel-ui-tests.log; exit 1; }
+      - name: Export test summary
+        if: always()
+        working-directory: source
+        run: |
+          if test -d CancelResults.xcresult; then
+            xcrun xcresulttool get test-results summary --path CancelResults.xcresult --compact > CancelResults-summary.json
+            cat CancelResults-summary.json
+            xcrun xcresulttool export attachments --path CancelResults.xcresult --output-path cancel-proof
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: To.Mina-0.1.55-ipad-cancel-proof
+          path: |
+            source/CancelResults-summary.json
+            source/cancel-ui-tests.log
+            source/cancel-proof
+          retention-days: 14
