@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify sanitized input and generate project
         run: |
-          echo '7443b3553c0e4e492ac3ee221690d85363ade528c5cc03f2e75097ee1a3febe6  ToMina-iOS-free-build-0.1.56.zip' | shasum -a 256 -c -
+          echo 'f9b7beeb0499fda91e46a956aa4492f602c5392e0a1ee3b94cc68544c51f6aac  ToMina-iOS-free-build-0.1.56.zip' | shasum -a 256 -c -
           unzip -q ToMina-iOS-free-build-0.1.56.zip -d source
           brew install xcodegen
           cd source
@@ -59,10 +59,10 @@ jobs:
         working-directory: source
         run: |
           xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath NativeResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests/EditorInteractionTests -only-testing:ToMinaTests/SourceLineTests -only-testing:ToMinaTests/PreviewExtentTests/testSoftwareKeyboardSizingReservesEditorSpaceInSplitWindows test > native-tests.log 2>&1 || { tail -n 100 native-tests.log; exit 1; }
-      - name: Verify landscape geometry, rotation and software keyboard
+      - name: Verify portrait and landscape geometry, rotation and software keyboard
         working-directory: source
         run: |
-          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath LandscapeResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock -only-testing:ToMinaUITests/EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > landscape-ui-tests.log 2>&1 || { tail -n 120 landscape-ui-tests.log; exit 1; }
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath LandscapeResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaUITests/EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor -only-testing:ToMinaUITests/EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock -only-testing:ToMinaUITests/EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation -only-testing:ToMinaUITests/EditorControlsUITests/testNarrowPreviewAndSoftwareKeyboardKeepTopBarAndBottomRowVisible -test-timeouts-enabled YES -default-test-execution-time-allowance 120 -maximum-test-execution-time-allowance 180 test > landscape-ui-tests.log 2>&1 || { tail -n 120 landscape-ui-tests.log; exit 1; }
       - name: Export test evidence
         if: always()
         working-directory: source
