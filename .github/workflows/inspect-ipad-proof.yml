@@ -1,0 +1,28 @@
+name: Inspect iPad CSS verification evidence
+on:
+  push:
+    branches: [codex/css-icons-public-0.1.55]
+    paths: [.github/workflows/inspect-ipad-proof.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  retrieve-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: To.Mina-0.1.55-ipad-cancel-proof
+          run-id: 41390466123
+          github-token: ${{ github.token }}
+          path: downloaded-proof
+      - name: Preserve synthetic test evidence for inspection
+        run: |
+          mkdir -p build-output/ipad-cancel-proof
+          cp -R downloaded-proof/. build-output/ipad-cancel-proof/
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-output/ipad-cancel-proof
+          git commit -m 'Preserve synthetic iPad CSS test evidence [skip ci]'
+          git push origin HEAD:codex/css-icons-public-0.1.55
