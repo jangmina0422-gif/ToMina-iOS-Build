@@ -30,7 +30,14 @@ jobs:
           old='XCTAssertTrue(app.buttons["styles.css"].exists)'
           new='XCTAssertTrue(app.buttons["styles.css"].waitForExistence(timeout: 10))'
           assert s.count(old)==1
-          p.write_text(s.replace(old,new))
+          s=s.replace(old,new)
+          start=s.index('    func testToolboxCleanupWithMultipleCSSWaitsForSelectionAndCanCancel()')
+          end=s.index('    func testCSSCleanupCanBeOpenedFromINIMenu()',start)
+          block=s[start:end]
+          oldtap='app.buttons["tools.cssCleanup"].tap()'
+          assert block.count(oldtap)==2
+          block=block.replace(oldtap,'tapSettled(app.buttons["tools.cssCleanup"])')
+          p.write_text(s[:start]+block+s[end:])
           PY
       - name: Prepare simulator
         working-directory: source
