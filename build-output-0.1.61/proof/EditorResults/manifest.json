@@ -5,28 +5,28 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "19DB73C9-ED40-41DA-97A0-11D2C46B1200.png",
+        "exportedFileName" : "C7E91607-AF87-47EC-B8B9-B93BD1C2E8A1.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "New-CSS-style-field-in-source_0_A08613CB-10E0-4F1A-BD3E-02BAB6D819C4.png",
-        "timestamp" : 1794192161.826
+        "suggestedHumanReadableName" : "New-CSS-style-field-in-source_0_661EB947-0E1A-40B3-82E0-DD80092E5D03.png",
+        "timestamp" : 1794193094.981
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "138E80CC-B653-4C21-B521-54996D76F1EF.png",
+        "exportedFileName" : "8DD7318B-0229-489D-8913-8EA5FE388D1C.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "KEY-field-appended-to-source_0_8CBB4DF5-97AC-42FC-A0C1-4733B6F9CF33.png",
-        "timestamp" : 1794192140.441
+        "suggestedHumanReadableName" : "KEY-field-appended-to-source_0_AAABF63B-922F-4049-BD93-C5141815F3CB.png",
+        "timestamp" : 1794193070.83
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "66D24BAB-BA00-4B05-AFAB-E336E7B1D8EA.png",
+        "exportedFileName" : "A457115D-0FB4-47FE-B808-CB31906244BD.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "KEY-field-insertion-options_0_996E6865-3919-40EF-8F5A-7FF463F16662.png",
-        "timestamp" : 1794192137.288
+        "suggestedHumanReadableName" : "KEY-field-insertion-options_0_67C58D0D-31F4-485D-BFDF-541DDC40CB57.png",
+        "timestamp" : 1794193069.206
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource()",
@@ -38,10 +38,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "4031D014-9E64-4007-9A72-073EE2597FBF.png",
+        "exportedFileName" : "BAB9D6AC-027D-4889-81CE-94D1D8441DA6.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Archive-folder-actions-with-gaps_0_404BDB60-51E1-4979-B0A2-863CBFCF23DF.png",
-        "timestamp" : 1794192172.041
+        "suggestedHumanReadableName" : "Archive-folder-actions-with-gaps_0_D1219778-EEC7-4710-A7B5-CF548A027637.png",
+        "timestamp" : 1794193104.285
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testArchiveFolderActionsHaveSpacingAndStayInsideSheet()",
@@ -53,10 +53,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "B9419081-0074-4A94-AE81-E1EA0857B1C8.png",
+        "exportedFileName" : "63FC124C-F94A-4B9D-B9AD-07DB4CF8CC7E.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "CSS-cleanup-from-toolbox_0_31EA5D0D-4CB5-4720-8D17-AC2B4FF5E13A.png",
-        "timestamp" : 1794192184.028
+        "suggestedHumanReadableName" : "CSS-cleanup-from-toolbox_0_23B831D2-37C1-46A9-963B-23D066EF2BDB.png",
+        "timestamp" : 1794193115.701
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testCSSCleanupFromToolboxClosesSheetKeepsStylesAndSupportsUndo()",
@@ -68,10 +68,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "9C438BCE-51A6-4593-8F81-C42C9AB757F5.png",
+        "exportedFileName" : "286637B4-6F71-4A06-82DD-784B11BFB06E.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Floating-controls-equal-size_0_4AACFF54-6BBE-49C4-A370-2083A7BE3B4B.png",
-        "timestamp" : 1794192203.858
+        "suggestedHumanReadableName" : "Floating-controls-equal-size_0_3D99FB0B-B079-4BFD-BAB4-1B306E4043AB.png",
+        "timestamp" : 1794193134.204
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testFloatingButtonsHaveEqualFramesIncludingMenuAndPauseState()",
@@ -83,19 +83,19 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "B8FE699E-1166-4665-8E5A-3D68810BAD48.png",
+        "exportedFileName" : "F4ECDB9E-F9C0-4F97-8C4A-EBEB0F9ACDE5.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDI_0_C3B2C95E-0E01-4E32-9CEB-3179D5BDE789.png",
-        "timestamp" : 1794192244.377
+        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDI_0_2B9B538B-7FE2-4E6F-8B56-E418BE612457.png",
+        "timestamp" : 1794193224.13
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "D70D620A-30A0-403C-99E0-A2D8D77CAD15.png",
+        "exportedFileName" : "0D223211-9E82-4F5D-84F3-9059E5F4D0ED.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDS_0_31C3B88C-DA41-44D2-8E9C-E1936157FFA3.png",
-        "timestamp" : 1794192222.243
+        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDS_0_DF77630D-9D08-499D-8653-5101295D6E04.png",
+        "timestamp" : 1794193210.172
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testHalfBdaToolExplainsOrdinaryBdsAndBdi()",
@@ -107,28 +107,28 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "49782BBE-9209-43F8-BEFD-3042BC178519.png",
+        "exportedFileName" : "1751F290-AE87-4EB2-9C67-93379FEB7164.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Version-only-in-menu_0_43CA0FD7-E825-48B9-9AEE-A8A9B4A90C84.png",
-        "timestamp" : 1794192287.159
+        "suggestedHumanReadableName" : "Version-only-in-menu_0_455647CB-66A9-4DB2-A5F4-927D21BBD0C6.png",
+        "timestamp" : 1794193262.092
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "30699180-2F47-4E12-825B-01304BBE9B96.png",
+        "exportedFileName" : "7B70D285-6E7F-4742-B20C-8922F4732AFA.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Search-keeps-caret-while-editing_0_8ED2233E-96D9-486C-B718-02846929B6F2.png",
-        "timestamp" : 1794192284.314
+        "suggestedHumanReadableName" : "Search-keeps-caret-while-editing_0_F42A76FC-419C-4B35-91CC-2B2A4D359E4B.png",
+        "timestamp" : 1794193259.278
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "3209AB61-7CD8-41F5-B50F-723328370A23.png",
+        "exportedFileName" : "5BA6C3A4-BA60-46AF-AC2B-8BB98C26F341.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Landscape-search-left-preview-right-editor_0_BAF6BDC9-2ED5-4CE3-A338-7A836A3B7CE4.png",
-        "timestamp" : 1794192272.37
+        "suggestedHumanReadableName" : "Landscape-search-left-preview-right-editor_0_CD9C486D-2599-4867-93A5-CE86444241D4.png",
+        "timestamp" : 1794193246.099
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testLandscapeSearchAndMenuVersion()",
@@ -140,10 +140,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "D29BF919-5FA5-4C27-9512-08789CEEC097.png",
+        "exportedFileName" : "65E30A44-1D0F-4D8C-803B-91A2919B4D3D.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Landscape-source-expanded-with-compact-details_0_D09412B5-27E4-46E8-AB8D-C8389AD7C9E0.png",
-        "timestamp" : 1794192297.577
+        "suggestedHumanReadableName" : "Landscape-source-expanded-with-compact-details_0_FF15263F-DB04-46EB-B52E-8CAB159F1FEE.png",
+        "timestamp" : 1794193271.385
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock()",
@@ -155,10 +155,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "4A5343B4-2607-4729-BA9F-3D428750B47A.png",
+        "exportedFileName" : "4F2630CC-C630-4383-A9A3-CC1015C3BC64.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Toolbox-consolidated-editor-actions_0_761BB7E1-DDE3-46B3-B931-1965886D066B.png",
-        "timestamp" : 1794192314.012
+        "suggestedHumanReadableName" : "Toolbox-consolidated-editor-actions_0_51D6970F-2401-4CCB-A28D-A930D830987D.png",
+        "timestamp" : 1794193286.596
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testModesMoveToHeaderAndToolboxHasOneCleanup()",
@@ -170,10 +170,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "BCB3CA39-52F5-4E95-991A-04903A09A015.png",
+        "exportedFileName" : "C93F5A48-8F43-43BF-AB1E-A59896FD4C1A.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Portrait-source-expanded-with-compact-details_0_DC6D1CB4-6747-4454-A986-84FD63BD728B.png",
-        "timestamp" : 1794192321.442
+        "suggestedHumanReadableName" : "Portrait-source-expanded-with-compact-details_0_8A294CFC-3A6F-40EE-93B5-42A0D0509223.png",
+        "timestamp" : 1794193293.962
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor()",
@@ -185,52 +185,52 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "D89C5B5D-D7A4-4E21-AADC-4584345666D3",
+        "exportedFileName" : "A2255F44-D200-4791-8D24-AE970A5336FE",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 02.45.37 AM",
-        "timestamp" : 1794192337.468
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 03.01.49 AM",
+        "timestamp" : 1794193309.333
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "79ADD8F9-1FC4-4762-A3D8-980A6F5CE964",
+        "exportedFileName" : "6233587D-0FFC-44B8-A752-40229229C7EB",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 02.45.35 AM",
-        "timestamp" : 1794192335.855
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 03.01.47 AM",
+        "timestamp" : 1794193307.59
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "22832409-0C87-48C9-A4B0-0F69094E4AED",
+        "exportedFileName" : "56488A3D-48ED-4216-BF56-D52CB1C120AC",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 02.45.30 AM",
-        "timestamp" : 1794192330.087
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 03.01.42 AM",
+        "timestamp" : 1794193302.485
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "15AC7B2A-9BDA-4952-97DB-6779F48485C5",
+        "exportedFileName" : "7C3E71B5-5249-4F3F-A249-777078C04133",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 02.45.29 AM",
-        "timestamp" : 1794192329.108
+        "suggestedHumanReadableName" : "Synthesized Event 2026-11-09 at 03.01.41 AM",
+        "timestamp" : 1794193301.809
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "3E7BBF98-C0C4-406D-AF38-1E28DB5BA5A6.mp4",
+        "exportedFileName" : "329A9525-0EC4-423B-A128-DDBDE4CA5E75.mp4",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Screen Recording 2026-11-09 at 02.45.21 AM.mp4",
-        "timestamp" : 1794192321.701
+        "suggestedHumanReadableName" : "Screen Recording 2026-11-09 at 03.01.34 AM.mp4",
+        "timestamp" : 1794193294.236
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "A9D3723F-5AAB-4715-99FF-3B35444A5043.txt",
+        "exportedFileName" : "C3E817A6-01DA-44A3-A220-5460947E7A65.txt",
         "isAssociatedWithFailure" : true,
         "suggestedHumanReadableName" : "Complete Issue Description.txt"
       }
@@ -244,10 +244,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "39B996E8-2486-419C-9067-230754EAFE15.png",
+        "exportedFileName" : "432DE310-22C9-419A-815A-29F56AEC1014.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Single-GIF-applied-without-export_0_5F2760F1-597D-426B-B66B-DC906609C15F.png",
-        "timestamp" : 1794192375.053
+        "suggestedHumanReadableName" : "Single-GIF-applied-without-export_0_95298687-E6AB-4140-9662-43EFAFB7755B.png",
+        "timestamp" : 1794193343.639
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testSingleGIFAppliesToPreviewWithoutOpeningExport()",
@@ -259,10 +259,10 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "2DD6DD33-382C-47F6-877F-D26A3F34540A.png",
+        "exportedFileName" : "4F1DFD98-7234-4260-BE94-FC363C1D631C.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Plaintext-copy-in-toolbox_0_33536343-1FAB-4EE3-A421-268F6C379DFF.png",
-        "timestamp" : 1794192393.105
+        "suggestedHumanReadableName" : "Plaintext-copy-in-toolbox_0_8EB5A4E6-1B5A-427C-AF7E-1ED5C860EF8B.png",
+        "timestamp" : 1794193360.117
       }
     ],
     "testIdentifier" : "EditorControlsUITests/testSourceOpensDirectlyAndPlaintextLivesInToolbox()",
