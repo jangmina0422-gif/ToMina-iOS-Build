@@ -1,0 +1,115 @@
+Application, 0x1030588b0, pid: 23564, label: 'To.Mina' <App element pid: 23564>
+  Window (Main), 0x103060ce0, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4318149984.4>
+    Other, 0x10304f210, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4318285360.5>
+      Other, 0x10305c030, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4318424064.6>
+        Other, 0x10305e2c0, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4318282768.7>
+          Other, 0x103056070, {{-1210.0, -834.0}, {3630.0, 2502.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup' <AX element pid: 23564, elementOrHash.elementID: 4319016720.92>
+          Other, 0x10305c150, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4318208000.8>
+            Other, 0x10305c270, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169817088.9>
+              StaticText, 0x10305c390, {{14.0, 34.0}, {83.5, 27.5}}, label: 'To.Mina' <AX element pid: 23564, elementOrHash.elementID: 105553169793984.10>
+              Button, 0x10305c4b0, {{1074.5, 35.0}, {42.0, 26.0}}, identifier: 'editor.effects', label: '动效', value: 已关闭 <AX element pid: 23564, elementOrHash.elementID: 105553169774016.11>
+              Button, 0x10305c5d0, {{1124.5, 35.0}, {42.0, 26.0}}, identifier: 'editor.floating', label: '漂浮', value: 已关闭 <AX element pid: 23564, elementOrHash.elementID: 105553169774176.12>
+              Button, 0x10305c6f0, {{1174.5, 35.0}, {21.5, 26.0}}, label: '⋮' <AX element pid: 23564, elementOrHash.elementID: 105553169774976.13>
+                Button, 0x10305c810, {{1174.5, 35.0}, {21.5, 26.0}} <AX element pid: 23564, elementOrHash.elementID: 4318945760.21>
+                  Other, 0x10305c930, {{1174.5, 35.0}, {21.5, 26.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169774656.30>
+                    StaticText, 0x10305ca50, {{1182.5, 40.0}, {5.5, 16.0}}, label: '⋮' <AX element pid: 23564, elementOrHash.elementID: 105553169774496.37>
+              Button, 0x10305cb70, {{15.5, 77.5}, {104.5, 17.0}}, label: '包内文件夹：controls.bds' <AX element pid: 23564, elementOrHash.elementID: 105553169811808.14>
+                Image, 0x10305cc90, {{15.5, 79.5}, {16.0, 13.0}}, identifier: 'folder', label: 'Move' <AX element pid: 23564, elementOrHash.elementID: 105553169810048.22>
+                StaticText, 0x10305cdb0, {{39.0, 77.5}, {81.0, 17.0}}, label: 'controls.bds' <AX element pid: 23564, elementOrHash.elementID: 105553169811488.23>
+              StaticText, 0x10305ced0, {{1038.5, 78.8}, {57.5, 14.5}}, label: '240 × 120' <AX element pid: 23564, elementOrHash.elementID: 105553169812448.15>
+              Button, 0x10305cff0, {{1104.0, 73.0}, {42.0, 26.0}}, label: '适配' <AX element pid: 23564, elementOrHash.elementID: 105553169813728.16>
+              Button, 0x10305d110, {{1154.0, 73.0}, {42.0, 26.0}}, label: '保存' <AX element pid: 23564, elementOrHash.elementID: 105553169814208.17>
+              Other, 0x10305f2d0, {{0.0, 108.5}, {628.0, 700.5}}, identifier: 'editor.preview', label: '键盘预览', value: py_26 <AX element pid: 23564, elementOrHash.elementID: 105553169814528.18>
+              ScrollView, 0x10305f3f0, {{643.0, 112.5}, {553.0, 44.0}} <AX element pid: 23564, elementOrHash.elementID: 4354096128.19>
+                Other, 0x10305f510, {{643.0, 112.5}, {553.0, 37.0}} <AX element pid: 23564, elementOrHash.elementID: 4319463392.24>
+                  StaticText, 0x10305f630, {{643.0, 112.5}, {196.0, 14.5}}, label: '布局线框 · 当前配置未找到 CSS 样式' <AX element pid: 23564, elementOrHash.elementID: 105553169815808.31>
+                  StaticText, 0x10305f750, {{643.0, 135.0}, {78.0, 14.5}}, label: 'port/py_26.ini' <AX element pid: 23564, elementOrHash.elementID: 105553169816128.32>
+                Other, 0x10305f870, {{1163.0, 112.5}, {30.0, 44.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4318348048.25>
+                  Other, 0x10305f990, {{1190.0, 146.5}, {3.0, 7.0}} <AX element pid: 23564, elementOrHash.elementID: 4318189264.33>
+                Other, 0x10305fab0, {{1163.0, 112.5}, {30.0, 44.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4318348048.25>
+                  Other, 0x10305fbd0, {{1190.0, 146.5}, {3.0, 7.0}} <AX element pid: 23564, elementOrHash.elementID: 4318189264.33>
+              TextView, 0x10305fcf0, {{651.0, 172.5}, {537.0, 622.5}}, label: '配置源码', value: [PANEL]
+SIZE=240,1... <AX element pid: 23564, elementOrHash.elementID: 4354039808.20>
+                StaticText, 0x10305fe10, {{651.0, 172.5}, {790.0, 26.0}}, identifier: 'source.linePosition', label: '  第 1 行 / 共 12 行' <AX element pid: 23564, elementOrHash.elementID: 4318975072.26>
+                StaticText, 0x10305ff30, {{651.0, 172.5}, {790.0, 26.0}}, identifier: 'source.linePosition', label: '  第 1 行 / 共 12 行' <AX element pid: 23564, elementOrHash.elementID: 4318975072.26>
+                Other, 0x103060050, {{1155.0, 172.5}, {30.0, 622.5}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4318062432.27>
+                  Other, 0x103060170, {{1182.0, 603.0}, {3.0, 245.0}} <AX element pid: 23564, elementOrHash.elementID: 4318393296.34>
+                Other, 0x103060290, {{651.0, 762.0}, {537.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4318371520.28>
+                  Other, 0x1030603b0, {{654.0, 789.0}, {784.0, 3.0}} <AX element pid: 23564, elementOrHash.elementID: 4318757808.35>
+    Other, 0x1030604d0, {{0.0, 0.0}, {1210.0, 834.0}} <AX element pid: 23564, elementOrHash.elementID: 4317533936.87>
+      Other, 0x1030605f0, {{-1210.0, -834.0}, {3630.0, 2502.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup' <AX element pid: 23564, elementOrHash.elementID: 4830841792.88>
+      Other, 0x103060710, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317486384.89>
+        Image, 0x103060830, {{165.0, -53.0}, {880.0, 940.0}} <AX element pid: 23564, elementOrHash.elementID: 4317460640.90>
+        Other, 0x103060950, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317376768.91>
+          Other, 0x103053ad0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317531120.93>
+            Other, 0x103053bf0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317497088.94>
+              Other, 0x103053d10, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317412624.95>
+                Other, 0x103053e30, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4319698832.96>
+                  Other, 0x10305eda0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169846016.97>
+                    Other, 0x10305eec0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317519712.98>
+                      NavigationBar, 0x10305efe0, {{315.0, 97.0}, {580.0, 108.0}}, identifier: '工具箱' <AX element pid: 23564, elementOrHash.elementID: 4319573552.99>
+                        Other, 0x10305f100, {{833.0, 111.0}, {42.0, 28.5}}, label: '关闭' <AX element pid: 23564, elementOrHash.elementID: 4830985264.101>
+                          Other, 0x1030550d0, {{833.0, 111.0}, {42.0, 28.5}} <AX element pid: 23564, elementOrHash.elementID: 105553169844416.104>
+                            Button, 0x1030551f0, {{833.0, 111.0}, {42.0, 28.5}}, label: '关闭' <AX element pid: 23564, elementOrHash.elementID: 105553169844096.106>
+                        StaticText, 0x103055310, {{335.0, 156.5}, {97.0, 41.0}}, label: '工具箱' <AX element pid: 23564, elementOrHash.elementID: 4319710432.102>
+                      Other, 0x10305a3d0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317520144.100>
+                        Other, 0x10305a4f0, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4317484320.103>
+                          Other, 0x10305a610, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4318933856.105>
+                            Other, 0x10305a730, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169831712.107>
+                              ScrollView, 0x10305a850, {{315.0, 97.0}, {580.0, 640.0}} <AX element pid: 23564, elementOrHash.elementID: 4347574272.108>
+                                Other, 0x10305a970, {{315.0, 205.0}, {580.0, 2058.5}} <AX element pid: 23564, elementOrHash.elementID: 4318934704.109>
+                                  Button, 0x10305aa90, {{335.0, 225.0}, {540.0, 28.5}}, identifier: 'tools.editorGroup', label: '源码与按键' <AX element pid: 23564, elementOrHash.elementID: 105553169827552.111>
+                                    StaticText, 0x10305abb0, {{335.0, 225.0}, {540.0, 28.5}}, label: '源码与按键' <AX element pid: 23564, elementOrHash.elementID: 105553169827392.133>
+                                    Image, 0x10305acd0, {{864.0, 236.5}, {12.0, 7.0}}, identifier: 'expanded' <AX element pid: 23564, elementOrHash.elementID: 105553169826912.134>
+                                  Switch, 0x10305adf0, {{335.0, 253.5}, {540.0, 31.0}}, identifier: 'tools.editorGroup', label: '音效', value: 0 <AX element pid: 23564, elementOrHash.elementID: 105553169881824.137>
+                                    StaticText, 0x103060f60, {{335.0, 258.8}, {34.0, 20.5}}, label: '音效' <AX element pid: 23564, elementOrHash.elementID: 105553169881504.154>
+                                    Switch, 0x103061080, {{826.0, 253.5}, {51.0, 31.0}}, value: 0 <AX element pid: 23564, elementOrHash.elementID: 4319819152.155>
+                                  Button, 0x1030611a0, {{335.0, 292.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '添加字段' <AX element pid: 23564, elementOrHash.elementID: 105553169881984.138>
+                                  Button, 0x1030612c0, {{335.0, 348.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '文本搜索' <AX element pid: 23564, elementOrHash.elementID: 105553169882144.139>
+                                  Button, 0x1030613e0, {{335.0, 404.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '跳到最后一行' <AX element pid: 23564, elementOrHash.elementID: 105553169882304.140>
+                                  Button, 0x103061500, {{335.0, 460.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '撤销', Disabled <AX element pid: 23564, elementOrHash.elementID: 105553169882464.141>
+                                  Button, 0x103061620, {{335.0, 516.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '重做', Disabled <AX element pid: 23564, elementOrHash.elementID: 105553169882624.142>
+                                  Button, 0x103061740, {{335.0, 572.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '检查当前文件' <AX element pid: 23564, elementOrHash.elementID: 105553169882784.143>
+                                  Button, 0x103061860, {{335.0, 628.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '显示按下态' <AX element pid: 23564, elementOrHash.elementID: 105553169882944.144>
+                                  Button, 0x103061980, {{335.0, 684.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '候选栏' <AX element pid: 23564, elementOrHash.elementID: 105553169883584.145>
+                                    Button, 0x103061aa0, {{335.0, 684.5}, {540.0, 44.0}} <AX element pid: 23564, elementOrHash.elementID: 4317444352.156>
+                                      Other, 0x103061bc0, {{335.0, 684.5}, {540.0, 44.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169883424.163>
+                                        StaticText, 0x103061ce0, {{582.5, 697.5}, {45.0, 18.0}}, label: '候选栏' <AX element pid: 23564, elementOrHash.elementID: 105553169883264.168>
+                                  Button, 0x103061e00, {{335.0, 740.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '显示触控框' <AX element pid: 23564, elementOrHash.elementID: 105553169883744.146>
+                                  Button, 0x103061f20, {{335.0, 796.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '显示 VIEW 区域' <AX element pid: 23564, elementOrHash.elementID: 105553169884064.147>
+                                  Button, 0x103062040, {{335.0, 852.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '多选按键' <AX element pid: 23564, elementOrHash.elementID: 105553169884224.148>
+                                  Button, 0x103062160, {{335.0, 908.5}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '批量 / 对齐' <AX element pid: 23564, elementOrHash.elementID: 105553169884864.149>
+                                    Button, 0x103062280, {{335.0, 908.5}, {540.0, 44.0}} <AX element pid: 23564, elementOrHash.elementID: 4317757136.157>
+                                      Other, 0x1030623a0, {{335.0, 908.5}, {540.0, 44.0}} <AX element pid: 23564, elementOrHash.elementID: 105553169884704.166>
+                                        StaticText, 0x1030624c0, {{569.0, 921.5}, {72.0, 18.0}}, label: '批量 / 对齐' <AX element pid: 23564, elementOrHash.elementID: 105553169884544.170>
+                                  Button, 0x1030625e0, {{335.0, 964.5}, {74.0, 34.5}}, identifier: 'tools.editorGroup', label: '自动排列, 关闭' <AX element pid: 23564, elementOrHash.elementID: 4317752032.150>
+                                    StaticText, 0x103062700, {{347.0, 971.5}, {34.0, 20.5}}, label: '关闭' <AX element pid: 23564, elementOrHash.elementID: 4319879136.158>
+                                  Button, 0x103062820, {{335.0, 1011.0}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '添加按键' <AX element pid: 23564, elementOrHash.elementID: 105553169885344.151>
+                                  Button, 0x103062940, {{335.0, 1067.0}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '复制按键', Disabled <AX element pid: 23564, elementOrHash.elementID: 105553169885504.152>
+                                  Button, 0x103062a60, {{335.0, 1123.0}, {540.0, 44.0}}, identifier: 'tools.editorGroup', label: '删除按键', Disabled <AX element pid: 23564, elementOrHash.elementID: 105553169885664.153>
+                                  Button, 0x103062b80, {{335.0, 1183.0}, {540.0, 44.0}}, identifier: 'tools.cssCleanup', label: 'CSS 整理' <AX element pid: 23564, elementOrHash.elementID: 105553169826752.112>
+                                    Image, 0x103062ca0, {{562.0, 1200.5}, {15.0, 9.0}}, identifier: 'line.3.horizontal.decrease', label: 'line.3.horizontal.decrease' <AX element pid: 23564, elementOrHash.elementID: 105553169826272.135>
+                                    StaticText, 0x103062dc0, {{562.0, 1196.0}, {88.0, 18.0}}, label: 'CSS 整理' <AX element pid: 23564, elementOrHash.elementID: 105553169827072.136>
+                                  StaticText, 0x103062ee0, {{335.0, 1243.0}, {531.5, 16.0}}, label: '保留 STYLE 标题和编号，只清空未调用样式的内容。可撤销；多个 CSS 文件会先让你选择。' <AX element pid: 23564, elementOrHash.elementID: 105553169828192.113>
+                                  Button, 0x103063000, {{335.0, 1275.0}, {540.0, 44.0}}, identifier: 'tools.plaintext', label: '生成明文副本' <AX element pid: 23564, elementOrHash.elementID: 105553169825792.114>
+                                  Button, 0x103063120, {{335.0, 1335.0}, {540.0, 44.0}}, identifier: 'tools.packageCheck', label: '底包检查' <AX element pid: 23564, elementOrHash.elementID: 105553169826432.115>
+                                  Button, 0x103063240, {{335.0, 1395.0}, {540.0, 44.0}}, identifier: 'tools.updateHalfBda', label: '更新半bda' <AX element pid: 23564, elementOrHash.elementID: 105553169828352.116>
+                                  StaticText, 0x103063360, {{335.0, 1455.0}, {515.0, 34.0}}, identifier: 'tools.halfBdaAvailability', label: '当前包没有半 BDA 的配套 JSON/TXT 配置。普通 INI 修改直接保存或导出即可，无需更新半 BDA。' <AX element pid: 23564, elementOrHash.elementID: 105553169828832.117>
+                                  Button, 0x103063480, {{335.0, 1505.0}, {540.0, 44.0}}, identifier: 'tools.singleGIF', label: 'GIF 动态背景' <AX element pid: 23564, elementOrHash.elementID: 105553169828992.118>
+                                  Button, 0x1030635a0, {{335.0, 1565.0}, {540.0, 44.0}}, label: 'VIEW 全局贴合' <AX element pid: 23564, elementOrHash.elementID: 105553169829312.119>
+                                  StaticText, 0x1030636c0, {{335.0, 1625.0}, {530.0, 34.0}}, label: '贴合包内全部 VIEW 布局，保护列表、手写区和触摸范围。图片保持原样；修改同步应用到预览和导出。' <AX element pid: 23564, elementOrHash.elementID: 105553169829472.120>
+                                  Button, 0x103063930, {{335.0, 1675.0}, {540.0, 44.0}}, label: 'POS_TYPE 归零' <AX element pid: 23564, elementOrHash.elementID: 105553169829632.121>
+                                  StaticText, 0x103063a50, {{335.0, 1735.0}, {414.5, 16.0}}, label: '将已有 POS_TYPE 的每个数值改为 0，例如 7,3 → 0,0；保留英文逗号。' <AX element pid: 23564, elementOrHash.elementID: 105553169829792.122>
+                                  Button, 0x103063b70, {{335.0, 1767.0}, {540.0, 44.0}}, label: '清除缓存' <AX element pid: 23564, elementOrHash.elementID: 105553169830112.123>
+                                  StaticText, 0x103063c90, {{335.0, 1827.0}, {232.5, 16.0}}, label: '保留最新编辑项目，清除其他历史缓存。' <AX element pid: 23564, elementOrHash.elementID: 105553169830272.124>
+                                  Button, 0x103063db0, {{335.0, 1859.0}, {540.0, 44.0}}, label: '导出 VIEW / LIST 区域辅助线' <AX element pid: 23564, elementOrHash.elementID: 105553169830432.125>
+                                  StaticText, 0x103063ed0, {{335.0, 1919.0}, {67.5, 20.5}}, label: '颜色换算' <AX element pid: 23564, elementOrHash.elementID: 105553169830592.126>
+                                  TextField, 0x103063ff0, {{347.0, 1967.5}, {516.0, 22.0}}, placeholderValue: '颜色', value: #FF222222 <AX element pid: 23564, elementOrHash.elementID: 4349076992.127>
+                                  Button, 0x103064110, {{335.0, 2017.5}, {540.0, 44.0}}, label: '换算颜色' <AX element pid: 23564, elementOrHash.elementID: 105553169830912.128>
+                                  TextField, 0x103064230, {{347.0, 2089.5}, {516.0, 22.0}}, placeholderValue: '横屏宽度', value: 1920 <AX element pid: 23564, elementOrHash.elementID: 4337899520.129>
+                                  Button, 0x103064350, {{335.0, 2139.5}, {540.0, 44.0}}, label: '转横屏' <AX element pid: 23564, elementOrHash.elementID: 105553169831072.130>
+                                  Button, 0x103064470, {{335.0, 2199.5}, {540.0, 44.0}}, label: '转系统' <AX element pid: 23564, elementOrHash.elementID: 105553169831232.131>
+                                Other, 0x103064790, {{862.0, 153.0}, {30.0, 584.0}}, label: 'Vertical scroll bar, 4 pages', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4319869632.110>
+                                  Other, 0x1030648b0, {{889.0, 156.0}, {3.0, 295.0}} <AX element pid: 23564, elementOrHash.elementID: 4319870064.132>
+                                Other, 0x1030649d0, {{862.0, 153.0}, {30.0, 584.0}}, label: 'Vertical scroll bar, 4 pages', value: 0% <AX element pid: 23564, elementOrHash.elementID: 4319869632.110>
+                                  Other, 0x103064af0, {{889.0, 156.0}, {3.0, 295.0}} <AX element pid: 23564, elementOrHash.elementID: 4319870064.132>

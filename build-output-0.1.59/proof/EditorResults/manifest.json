@@ -1,0 +1,86 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "EDD2E904-382C-4C3F-B825-A68B0E782C9A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Landscape-source-expanded-with-compact-details_0_BF057C74-F9CF-4DDF-9903-476AA42324F9.png",
+        "timestamp" : 1794116606.577
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "1A53568A-A4C8-4FD0-9C8C-5C18FEFC5594.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Portrait-source-expanded-with-compact-details_0_863A258B-92BE-4FB2-870E-6224A72BF197.png",
+        "timestamp" : 1794116614.83
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "74BBF679-6E3B-4997-A105-FB270FC0EC94.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Single-GIF-applied-without-export_0_B1385C2A-A732-4317-AD66-9F5215C4D9EB.png",
+        "timestamp" : 1794116634.453
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testSingleGIFAppliesToPreviewWithoutOpeningExport()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testSingleGIFAppliesToPreviewWithoutOpeningExport"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "CD5A1F39-DE90-4177-B3D5-3BA441331592.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Single-GIF-current-INI-size-before-picker_0_50F8E040-C743-4850-811D-48C5617FDEC4.png",
+        "timestamp" : 1794116650.672
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "D52E0E0E-AF78-467F-A246-B345C60659C1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Single-GIF-toolbox-settings_0_67E13D33-5F8B-4223-A80D-9769932D0B04.png",
+        "timestamp" : 1794116648.756
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testSingleGIFToolOpensAndRequiresBackgroundSelection()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testSingleGIFToolOpensAndRequiresBackgroundSelection"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "EA4F2A95-AFF7-4D91-9A60-F6EF7F2C27FA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Preview-and-source-only-while-typing_0_9BD02294-8508-49C1-AA36-F8E10D3D3297.png",
+        "timestamp" : 1794116701.26
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testSourceEditingKeepsOnlyPreviewAndEditorAcrossRotation"
+  }
+]

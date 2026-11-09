@@ -1,0 +1,236 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "7E864C9B-7A4F-406D-AAE9-35C0EF267A85.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "New-CSS-style-field-in-source_0_A5C143EA-0775-408B-A47D-2D6B14E9EE14.png",
+        "timestamp" : 1794194330.362
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "D97CF895-6969-4D56-ACC2-D60767EB0726.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "KEY-field-appended-to-source_0_1C4D178A-5B1D-4BE0-8383-9DA1678FE253.png",
+        "timestamp" : 1794194244.506
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "F97DD5A0-87FD-42B0-9B3E-31CC7FF29726.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "KEY-field-insertion-options_0_E47F9FC5-6DC3-48E0-8443-2BDEA8001257.png",
+        "timestamp" : 1794194241.011
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testAddKeyAndNewCSSStyleFieldsInSource"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "C4BFA23A-4070-432A-A344-B77CB8A97D31.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Archive-folder-actions-with-gaps_0_59A013A9-DB08-4D1D-AFC1-7E74F34C26EE.png",
+        "timestamp" : 1794194342.382
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testArchiveFolderActionsHaveSpacingAndStayInsideSheet()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testArchiveFolderActionsHaveSpacingAndStayInsideSheet"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "E1E07C8F-C9AC-4DB9-8914-A10CB8F209E6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "CSS-cleanup-from-toolbox_0_D1FEEA3D-38DA-4F10-ABD8-BD6DEC6FF913.png",
+        "timestamp" : 1794194355.801
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testCSSCleanupFromToolboxClosesSheetKeepsStylesAndSupportsUndo()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testCSSCleanupFromToolboxClosesSheetKeepsStylesAndSupportsUndo"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "315A14A4-2D9A-4498-8EB3-D399A970E11A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Floating-controls-equal-size_0_296CD545-A023-4659-894B-501DFA540A28.png",
+        "timestamp" : 1794194379.294
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testFloatingButtonsHaveEqualFramesIncludingMenuAndPauseState()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testFloatingButtonsHaveEqualFramesIncludingMenuAndPauseState"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "6E4DDAA0-5751-4368-A650-65A48605E666.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDI_0_7D4B6FEC-56C6-4F86-9D70-9E1FF8B47E15.png",
+        "timestamp" : 1794194415.43
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "73172AD5-970B-4725-A3D0-78905CB2A68C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Half-BDA-explains-INI-BDS_0_B2668266-F695-4045-8266-451D25B843C2.png",
+        "timestamp" : 1794194399.797
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testHalfBdaToolExplainsOrdinaryBdsAndBdi()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testHalfBdaToolExplainsOrdinaryBdsAndBdi"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "9F53004E-1E55-43DC-845A-39F625436945.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Version-only-in-menu_0_3236DE04-3E95-4BE0-8B1A-51F5D610CDBC.png",
+        "timestamp" : 1794194521.789
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "56F3326A-411D-4628-9A55-A7E4CF94C454.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Search-keeps-caret-while-editing_0_974F5702-A961-4494-9F01-14BE4515CA1D.png",
+        "timestamp" : 1794194457.666
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "3907B2BC-34DA-4BF9-8DBF-C09C11C21ADD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Landscape-search-left-preview-right-editor_0_2A187D9B-FB31-4E9B-8EB7-0052857B24C8.png",
+        "timestamp" : 1794194442.146
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testLandscapeSearchAndMenuVersion()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testLandscapeSearchAndMenuVersion"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "82D07288-E44C-41DB-B0AE-ACEFCF9BFF7D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Landscape-source-expanded-with-compact-details_0_116386CE-44FE-463B-8A32-B1DFA001B043.png",
+        "timestamp" : 1794194537.121
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testLandscapeSourcePaneUsesHeightWithoutBlankDetailsBlock"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "3EC05593-C2C3-43A2-B060-8A19627A87FD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Toolbox-consolidated-editor-actions_0_400110B7-3045-466F-A4B6-9D65F68D9D16.png",
+        "timestamp" : 1794194554.068
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testModesMoveToHeaderAndToolboxHasOneCleanup()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testModesMoveToHeaderAndToolboxHasOneCleanup"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "5C2D11EF-B901-4933-9237-7A7C19ED275B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Portrait-source-expanded-with-compact-details_0_044D1C7C-7B74-4C88-8EC3-9B2FE4329B52.png",
+        "timestamp" : 1794194561.877
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testPortraitSourcePaneCompactsDetailsAboveEditor"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "EED1791A-F9CA-47D8-8946-0AA40FCAB508.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Landscape-fixed-preview-with-keyboard_0_2C8F49EB-9E25-4756-8B68-F429BAB57888.png",
+        "timestamp" : 1794194599.895
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "B683551D-058E-4F42-AD03-042AFCDD72F1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Portrait-fixed-preview-with-keyboard_0_276E7CED-8411-4556-83E4-89B20785883D.png",
+        "timestamp" : 1794194582.6
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testPreviewAndSourceFramesStayFixedAcrossKeyboardAndRotation()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testPreviewAndSourceFramesStayFixedAcrossKeyboardAndRotation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "5912DDD9-180E-4B11-B7ED-E798946A3BD9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Single-GIF-applied-without-export_0_6A202B66-F3D2-4A21-B5DF-643CBA2A38CD.png",
+        "timestamp" : 1794194624.78
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testSingleGIFAppliesToPreviewWithoutOpeningExport()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testSingleGIFAppliesToPreviewWithoutOpeningExport"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
+        "deviceName" : "iPad Pro 11-inch (M4)",
+        "exportedFileName" : "E58F60DB-1B31-4DD8-A506-5B7F8A8E872A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Plaintext-copy-in-toolbox_0_CE18800A-321C-44BF-BE08-E0E24019AB6B.png",
+        "timestamp" : 1794194643.648
+      }
+    ],
+    "testIdentifier" : "EditorControlsUITests/testSourceOpensDirectlyAndPlaintextLivesInToolbox()",
+    "testIdentifierURL" : "test://com.apple.xcode/ToMina/ToMinaUITests/EditorControlsUITests/testSourceOpensDirectlyAndPlaintextLivesInToolbox"
+  }
+]

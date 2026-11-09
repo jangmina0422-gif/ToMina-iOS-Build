@@ -1,0 +1,98 @@
+name: Build and verify To.Mina GIF background 0.1.57
+on:
+  push:
+    branches: [codex/gif-background-0.1.57]
+    paths: [ToMina-iOS-free-build-0.1.57.zip, .github/workflows/gif-background.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gif-background-0.1.57
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify sanitized input and generate project
+        run: |
+          echo 'edc8ba750e5e4caf44226d1c0f56bd5bd4f77950e3ff198a5dd0948f14c485a6  ToMina-iOS-free-build-0.1.57.zip' | shasum -a 256 -c -
+          unzip -q ToMina-iOS-free-build-0.1.57.zip -d source
+          brew install xcodegen
+          cd source
+          sips -s format png -z 1024 1024 Resources/IconSource.png --out Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          xcodegen generate
+      - name: Build and verify unsigned core
+        working-directory: source
+        run: |
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build > release-build.log 2>&1 || { tail -n 100 release-build.log; exit 1; }
+          APP=build/Build/Products/Release-iphoneos/ToMina.app
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$APP/Info.plist")" = '0.1.57'
+          test "$(/usr/libexec/PlistBuddy -c 'Print CFBundleVersion' "$APP/Info.plist")" = '58'
+          test "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$APP/Info.plist")" = '18.0'
+          python3 -c 'import json; assert json.load(open("build/Build/Products/Release-iphoneos/ToMina.app/Credentials.json"))["hashes"] == []'
+          mkdir -p dist/Payload
+          cp -R "$APP" dist/Payload/
+          cd dist
+          zip -qr To.Mina-0.1.57-core.ipa Payload
+      - name: Preserve the sanitized core for local resource assembly
+        run: |
+          mkdir -p build-output-0.1.57
+          cp source/dist/To.Mina-0.1.57-core.ipa build-output-0.1.57/
+          shasum -a 256 build-output-0.1.57/To.Mina-0.1.57-core.ipa > build-output-0.1.57/SHA256SUMS
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add build-output-0.1.57
+          git commit -m 'Preserve sanitized iOS 0.1.57 core for local resource assembly [skip ci]'
+          git push origin HEAD:codex/gif-background-0.1.57
+      - name: Prepare iPad simulator
+        working-directory: source
+        run: |
+          defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
+          xcrun simctl list devices available -j > devices.json
+          DEVICE=$(python3 -c 'import json; d=json.load(open("devices.json"))["devices"]; print(next(v["udid"] for k in sorted(d,key=lambda k:("iOS-18-" in k,k),reverse=True) for v in d[k] if "iOS" in k and "iPad" in v["name"] and v.get("isAvailable")))')
+          echo "EDITOR_TEST_DEVICE=$DEVICE" >> "$GITHUB_ENV"
+          xcrun simctl boot "$DEVICE" || true
+          xcrun simctl bootstatus "$DEVICE" -b
+      - name: Verify GIF compilation, transparency, export and reimport
+        working-directory: source
+        run: |
+          xcodebuild -project ToMina.xcodeproj -scheme ToMina -configuration Debug -destination "platform=iOS Simulator,id=$EDITOR_TEST_DEVICE" -parallel-testing-enabled NO -derivedDataPath simulator-build -resultBundlePath GIFResults.xcresult CODE_SIGNING_ALLOWED=NO -only-testing:ToMinaTests/SingleGIFTests -only-testing:ToMinaTests/BDIGIFTests -only-testing:ToMinaTests/GIFBackgroundFallbackTests test > native-tests.log 2>&1 || { tail -n 100 native-tests.log; exit 1; }
+      - name: Export test evidence
+        if: always()
+        working-directory: source
+        run: |
+          mkdir -p proof
+          for RESULT in GIFResults; do
+            if test -d "$RESULT.xcresult"; then
+              xcrun xcresulttool get test-results summary --path "$RESULT.xcresult" --compact > "proof/$RESULT-summary.json"
+              xcrun xcresulttool export attachments --path "$RESULT.xcresult" --output-path "proof/$RESULT"
+            fi
+          done
+          python3 - <<'PY'
+          import json,pathlib
+          for p in pathlib.Path('proof').glob('*-summary.json'):
+              print(json.dumps({'file':p.name,'summary':json.loads(p.read_text())}))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: To.Mina-0.1.57-gif-background-proof
+          path: |
+            source/proof
+            source/*-tests.log
+            source/release-build.log
+          retention-days: 14
+      - name: Preserve synthetic GIF regression evidence and summaries
+        if: always()
+        run: |
+          mkdir -p build-output-0.1.57/proof
+          if test -d source/proof; then
+            cp -R source/proof/. build-output-0.1.57/proof/
+          fi
+          git add build-output-0.1.57
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve synthetic GIF background verification evidence [skip ci]'
+            git push origin HEAD:codex/gif-background-0.1.57
+          fi
