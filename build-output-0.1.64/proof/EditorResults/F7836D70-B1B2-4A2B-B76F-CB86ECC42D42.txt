@@ -1,0 +1,70 @@
+Application, 0x101462000, pid: 30299, label: 'To.Mina' <App element pid: 30299>
+  Window (Main), 0x101463980, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4375738992.4>
+    Other, 0x10145bc70, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4380038208.5>
+      Other, 0x10145c0c0, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4380070208.6>
+        Other, 0x10145bb20, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4380135168.7>
+          Other, 0x101460120, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4379939568.8>
+            Other, 0x10145c1e0, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 105553169807584.9>
+              StaticText, 0x10145c300, {{14.0, 34.0}, {83.5, 27.5}}, label: 'To.Mina' <AX element pid: 30299, elementOrHash.elementID: 105553169753632.10>
+              Button, 0x10145c420, {{698.5, 35.0}, {42.0, 26.0}}, identifier: 'editor.effects', label: '动效', value: 已关闭 <AX element pid: 30299, elementOrHash.elementID: 105553169804224.11>
+              Button, 0x10145c540, {{748.5, 35.0}, {42.0, 26.0}}, identifier: 'editor.floating', label: '漂浮', value: 已关闭 <AX element pid: 30299, elementOrHash.elementID: 105553169801024.12>
+              Button, 0x10145c660, {{798.5, 35.0}, {21.5, 26.0}}, label: '⋮' <AX element pid: 30299, elementOrHash.elementID: 105553169803744.13>
+                Button, 0x10145c780, {{798.5, 35.0}, {21.5, 26.0}} <AX element pid: 30299, elementOrHash.elementID: 4381599136.21>
+                  Other, 0x10145c8a0, {{798.5, 35.0}, {21.5, 26.0}} <AX element pid: 30299, elementOrHash.elementID: 105553169802944.30>
+                    StaticText, 0x101463fc0, {{806.5, 40.0}, {5.5, 16.0}}, label: '⋮' <AX element pid: 30299, elementOrHash.elementID: 105553169802144.36>
+              Button, 0x1014640e0, {{15.5, 77.5}, {115.5, 17.0}}, label: '包内文件夹：combined.bds' <AX element pid: 30299, elementOrHash.elementID: 105553169804704.14>
+                Image, 0x101464200, {{15.5, 79.5}, {16.0, 13.0}}, identifier: 'folder', label: 'Move' <AX element pid: 30299, elementOrHash.elementID: 105553169803584.22>
+                StaticText, 0x101464320, {{39.0, 77.5}, {92.0, 17.0}}, label: 'combined.bds' <AX element pid: 30299, elementOrHash.elementID: 105553169804544.23>
+              StaticText, 0x101464440, {{654.0, 78.8}, {66.0, 14.5}}, label: '1080 × 640' <AX element pid: 30299, elementOrHash.elementID: 105553169805984.15>
+              Button, 0x101464560, {{728.0, 73.0}, {42.0, 26.0}}, label: '适配' <AX element pid: 30299, elementOrHash.elementID: 105553169806144.16>
+              Button, 0x101464680, {{778.0, 73.0}, {42.0, 26.0}}, label: '保存' <AX element pid: 30299, elementOrHash.elementID: 105553169806304.17>
+              Other, 0x10145a740, {{0.0, 108.5}, {834.0, 320.0}}, identifier: 'editor.preview', label: '顶栏与键盘预览', value: py_26 · cand1.cnd <AX element pid: 30299, elementOrHash.elementID: 105553169806464.18>
+              ScrollView, 0x10145a860, {{14.0, 432.5}, {806.0, 24.0}} <AX element pid: 30299, elementOrHash.elementID: 4421640704.19>
+                Other, 0x10145a980, {{14.0, 432.5}, {806.0, 14.5}} <AX element pid: 30299, elementOrHash.elementID: 4375956528.24>
+                  StaticText, 0x10145aaa0, {{14.0, 432.5}, {78.0, 14.5}}, label: 'port/py_26.ini' <AX element pid: 30299, elementOrHash.elementID: 105553169806624.31>
+                Other, 0x10145abc0, {{787.0, 432.5}, {30.0, 24.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 30299, elementOrHash.elementID: 4380357648.25>
+                  Other, 0x101461580, {{814.0, 441.5}, {3.0, 12.0}} <AX element pid: 30299, elementOrHash.elementID: 4380344192.32>
+                Other, 0x1014616a0, {{787.0, 432.5}, {30.0, 24.0}}, label: 'Vertical scroll bar, 1 page', value: 0% <AX element pid: 30299, elementOrHash.elementID: 4380357648.25>
+                  Other, 0x1014617c0, {{814.0, 441.5}, {3.0, 12.0}} <AX element pid: 30299, elementOrHash.elementID: 4380344192.32>
+              TextView, 0x1014618e0, {{22.0, 472.5}, {790.0, 668.5}}, label: '配置源码', value: [INPUT]
+[CAND]
+[PA..., Keyboard Focused, Focused <AX element pid: 30299, elementOrHash.elementID: 4421767680.20>
+                StaticText, 0x1014a3a40, {{22.0, 472.5}, {790.0, 26.0}}, identifier: 'source.linePosition', label: '  第 205 行 / 共 205 行' <AX element pid: 30299, elementOrHash.elementID: 4380445168.26>
+                StaticText, 0x1014a3b60, {{22.0, 472.5}, {790.0, 26.0}}, identifier: 'source.linePosition', label: '  第 205 行 / 共 205 行' <AX element pid: 30299, elementOrHash.elementID: 4380445168.26>
+                Other, 0x1014a3c80, {{779.0, 472.5}, {30.0, 668.5}}, label: 'Vertical scroll bar, 6 pages', value: 100% <AX element pid: 30299, elementOrHash.elementID: 4380556528.27>
+                  Other, 0x1014a3da0, {{806.0, 1006.0}, {3.0, 132.0}} <AX element pid: 30299, elementOrHash.elementID: 4380283968.33>
+                Other, 0x1014a3ec0, {{22.0, 1138.0}, {790.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0% <AX element pid: 30299, elementOrHash.elementID: 4380364080.28>
+                  Other, 0x1014a3fe0, {{25.0, 1165.0}, {781.0, 3.0}} <AX element pid: 30299, elementOrHash.elementID: 4380313120.34>
+  Window, 0x101459d70, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4423673856.170>
+    Other, 0x101459e90, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4380771200.172>
+      Other, 0x1014a4100, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4381093712.174>
+      Other, 0x1014a4220, {{0.0, 1141.0}, {834.0, 69.0}} <AX element pid: 30299, elementOrHash.elementID: 4380745552.175>
+  Window, 0x1014a4340, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4422903808.171>
+    Other, 0x1014a3840, {{0.0, 0.0}, {834.0, 1210.0}} <AX element pid: 30299, elementOrHash.elementID: 4380707056.173>
+      Other, 0x1014a4460, {{0.0, 1138.5}, {834.0, 351.0}} <AX element pid: 30299, elementOrHash.elementID: 4380356848.176>
+        Other, 0x1014a4580, {{0.0, 1138.5}, {834.0, 69.0}}, identifier: 'SystemInputAssistantView' <AX element pid: 30299, elementOrHash.elementID: 4380361264.177>
+          Other, 0x1014a48c0, {{318.0, 1138.5}, {198.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4380948928.180>
+            Other, 0x1014a49e0, {{318.0, 1138.5}, {198.0, 47.0}}, identifier: 'LeftButtonBar' <AX element pid: 30299, elementOrHash.elementID: 4380466720.182>
+              Other, 0x1014a4b00, {{333.0, 1138.5}, {183.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4380800512.184>
+                Other, 0x1014a4c20, {{333.0, 1138.5}, {36.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381985200.186>
+                  Other, 0x1014a4d40, {{333.0, 1138.5}, {36.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4894867408.191>
+                    Button, 0x1014a4e60, {{333.0, 1138.5}, {36.0, 47.0}}, identifier: 'Keyboard', label: 'Keyboard' <AX element pid: 30299, elementOrHash.elementID: 4894868448.196>
+                Other, 0x1014a4f80, {{384.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381925408.187>
+                  Other, 0x1014a50a0, {{384.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4894873920.192>
+                    Other, 0x1014a51c0, {{384.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381532400.197>
+                      Other, 0x1014a52e0, {{384.0, 1152.5}, {1.0, 19.0}} <AX element pid: 30299, elementOrHash.elementID: 4381495280.201>
+                Other, 0x1014a5400, {{400.0, 1138.5}, {34.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381906016.188>
+                  Other, 0x1014a5520, {{400.0, 1138.5}, {34.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4894880064.193>
+                    Button, 0x1014a5640, {{400.0, 1138.5}, {34.0, 47.0}}, identifier: 'source.keyboardDone', label: '完成' <AX element pid: 30299, elementOrHash.elementID: 4894880800.198>
+                Other, 0x1014a5760, {{449.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381907056.189>
+                  Other, 0x1014a5880, {{449.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4894887584.194>
+                    Other, 0x1014a59a0, {{449.0, 1138.5}, {1.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381680528.199>
+                      Other, 0x1014a5ac0, {{449.0, 1152.5}, {1.0, 19.0}} <AX element pid: 30299, elementOrHash.elementID: 4381679088.202>
+                Other, 0x1014a5be0, {{465.0, 1138.5}, {36.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4381900720.190>
+                  Other, 0x101273060, {{465.0, 1138.5}, {36.0, 47.0}} <AX element pid: 30299, elementOrHash.elementID: 4894897440.195>
+                    Button, 0x101274f20, {{465.0, 1138.5}, {36.0, 47.0}}, identifier: 'assistantDictation', label: 'Dictation' <AX element pid: 30299, elementOrHash.elementID: 4894898480.200>
+        Other, 0x10127b740, {{0.0, 1138.5}, {834.0, 351.0}} <AX element pid: 30299, elementOrHash.elementID: 4380880672.178>
+          Other, 0x101275ce0, {{318.0, 1137.0}, {198.0, 50.0}}, identifier: 'InputAssistantBackdrop' <AX element pid: 30299, elementOrHash.elementID: 4376738944.181>
+            Other, 0x101280d10, {{318.0, 1137.0}, {198.0, 50.0}} <AX element pid: 30299, elementOrHash.elementID: 4376349040.183>
+              Other, 0x10127be40, {{318.0, 1137.0}, {198.0, 50.0}} <AX element pid: 30299, elementOrHash.elementID: 4380812064.185>
+        Other, 0x101276390, {{0.0, 1207.5}, {834.0, 282.0}} <AX element pid: 30299, elementOrHash.elementID: 4380480976.179>
