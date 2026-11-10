@@ -5,73 +5,73 @@
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "4CD02778-9D44-4D0F-98FF-25B7AD88563D.png",
+        "exportedFileName" : "3E5430E8-B2A4-441A-B114-11759F0DD323.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-land-ja_shifts-true_0_5BF5C145-0226-4A78-87C4-3F21E6BAAF3A.png",
-        "timestamp" : 1794316014.664
+        "suggestedHumanReadableName" : "Kana-land-ja_shifts-true_0_2D0633C8-CE25-4341-8B96-A508C7CF681A.png",
+        "timestamp" : 1794317136.414
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "44EFF437-47F0-492C-B854-FA5BCB0490A6.png",
+        "exportedFileName" : "E67369DF-20BB-44D3-B7DC-93C4FFCCA049.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-land-ja_shifts-false_0_30E70D06-864B-4B1C-AC7F-79093188547C.png",
-        "timestamp" : 1794316014.652
+        "suggestedHumanReadableName" : "Kana-land-ja_shifts-false_0_744E27E5-11D1-417F-97CE-00AB9710662C.png",
+        "timestamp" : 1794317136.391
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "267A220D-3951-4113-B520-993974CFFC6C.png",
+        "exportedFileName" : "C7E34F59-C52F-4B1B-B181-198975C697E0.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-land-ja-true_0_CAAF54CA-DF46-4CBD-B84F-2968E1F20EB1.png",
-        "timestamp" : 1794316014.64
+        "suggestedHumanReadableName" : "Kana-land-ja-true_0_78E99FDA-EFA4-4B38-9A03-7623A7EF90FF.png",
+        "timestamp" : 1794317136.368
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "D4655B99-8A72-4DE9-8E7E-D28ABF4F6CA2.png",
+        "exportedFileName" : "D7953B4F-B61C-4A61-9F78-48C432BAAC6F.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-land-ja-false_0_4515A544-B4D8-4288-AA7D-04AF0C30630E.png",
-        "timestamp" : 1794316014.628
+        "suggestedHumanReadableName" : "Kana-land-ja-false_0_BD95751F-F3F1-4E28-B704-337D2691BA33.png",
+        "timestamp" : 1794317136.355
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "B74BD0E1-B492-4F3D-897F-FEAF6F8BEADB.png",
+        "exportedFileName" : "7A0C5477-A393-4A58-9B6E-D83E84A7DFA8.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-port-ja_shifts-true_0_7A9FDEDA-4F5B-4F3A-9F44-9DA7C5DEF794.png",
-        "timestamp" : 1794316014.616
+        "suggestedHumanReadableName" : "Kana-port-ja_shifts-true_0_8304ECC6-AF67-4037-BB35-5E4F18057AAB.png",
+        "timestamp" : 1794317136.334
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "2AD94C36-3664-4C94-9013-410A48E75DB7.png",
+        "exportedFileName" : "83E6BDEB-1891-447B-B2C6-9ECD7A950BFF.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-port-ja_shifts-false_0_C2811DF1-D1CD-41CF-969C-6889167A0472.png",
-        "timestamp" : 1794316014.606
+        "suggestedHumanReadableName" : "Kana-port-ja_shifts-false_0_56DDA4B4-F84A-4ACA-8D3D-B9CCDDF2CCB4.png",
+        "timestamp" : 1794317136.312
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "5FD001FC-DBB8-4913-A00C-3E116DF262D2.png",
+        "exportedFileName" : "A20D7DA0-CB3A-43AA-9CB5-868E745641C2.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-port-ja-true_0_CEF1BE2B-A5A1-4D5C-95F9-644CAFA515F6.png",
-        "timestamp" : 1794316014.592
+        "suggestedHumanReadableName" : "Kana-port-ja-true_0_D85D8FC8-15B5-44C6-B8CC-40A25E14E09C.png",
+        "timestamp" : 1794317136.293
       },
       {
         "configurationName" : "Test Scheme Action",
         "deviceId" : "77F1E59E-130D-4B93-895A-55BBCE876BBC",
         "deviceName" : "iPad Pro 11-inch (M4)",
-        "exportedFileName" : "038B825C-ECBF-48C8-A335-77DC0035A337.png",
+        "exportedFileName" : "5F085226-5AD7-4E6F-BD81-C140CAE808FA.png",
         "isAssociatedWithFailure" : false,
-        "suggestedHumanReadableName" : "Kana-port-ja-false_0_60580DBF-E2AC-475C-B88D-96721E4B8B55.png",
-        "timestamp" : 1794316014.56
+        "suggestedHumanReadableName" : "Kana-port-ja-false_0_278FD321-5B33-44D7-9D01-816582A9173E.png",
+        "timestamp" : 1794317136.251
       }
     ],
     "testIdentifier" : "BDIGIFTests/testJapaneseTextIsActuallyDrawnFromINIInBothRenderers()",

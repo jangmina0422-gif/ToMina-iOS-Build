@@ -1,0 +1,5 @@
+Query chain:
+ →Find: Target Application 'com.mina.tomina'
+  ↪︎Find: Descendants matching type Keyboard
+    ↪︎Find: First Match
+No matches found for first query match sequence: `Descendants matching type Keyboard`, given input Application, pid: 31922, label: 'To.Mina'
