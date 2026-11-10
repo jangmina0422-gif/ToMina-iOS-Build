@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify sanitized input and generate project
         run: |
-          echo '57854b6fadc8494c071981556d3a6e40b3f8daa9969258bb9b020185eece23f4  ToMina-iOS-free-build-0.1.64.zip' | shasum -a 256 -c -
+          echo 'a8479477fbf62970135b65425a3fd537f008f33e73424b92e2b7345da5d3095f  ToMina-iOS-free-build-0.1.64.zip' | shasum -a 256 -c -
           unzip -q ToMina-iOS-free-build-0.1.64.zip -d source
           brew install xcodegen
           cd source
